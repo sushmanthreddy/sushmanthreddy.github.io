@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <title>Deep learning self notes | Sushmanth&#39;s blog</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#FF3DB4">
+    <meta name="theme-color" content="#ffffff">
+
+    
+    
+    
+    <link rel="stylesheet" href="https://sushmanthreddy.github.io/css/main.min.e34415025514319010e741089e6920454053855755ba465f66943ad102d2cb08.css"/>
+
+    
+    
+    
+
+    
+    
+ 
+    </head>
+
+    <body>
+        
+<nav>
+  <header>
+    <div class="site-title">
+        <a href="/">Sushmanth&#39;s blog</a>
+    </div>  
+</header>
+
+  <div class="nav-menu">
+  
+    <a class="color-link nav-link" href="/about/">About Me</a>
+  
+    <a class="color-link nav-link" href="/tags/">Tags</a>
+  
+    <a class="color-link nav-link" href="/archives/">archive</a>
+  
+    <a class="color-link nav-link" href="https://sushmanthreddy.github.io/CV/CV.pdf">CV</a>
+  
+  <a class="color-link nav-link" href="https://sushmanthreddy.github.io/index.xml" target="_blank" rel="noopener" type="application/rss+xml">RSS</a>
+</div>
+<footer class="footer">
+	<div class="social-icons">
+        
+    <a class="social-icon" href="mailto:sushmanthreddymereddy@gmail.com" target="_blank" rel="noopener" title="Email">
+        <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+            <path d="M25.2794292,5.59128519 L14,16.8707144 L2.72057081,5.59128519 C3.06733103,5.30237414 3.51336915,5.12857603 4,5.12857603 L24,5.12857603 C24.4866308,5.12857603 24.932669,5.30237414 25.2794292,5.59128519 Z M25.9956978,6.99633695 C25.998551,7.04004843 26,7.08414302 26,7.12857603 L26,20.871424 C26,21.0798433 25.9681197,21.2808166 25.9089697,21.4697335 L18.7156355,14.2763993 L25.9956978,6.99633695 Z M24.9498374,22.6319215 C24.6672737,22.7846939 24.3437653,22.871424 24,22.871424 L4,22.871424 C3.5268522,22.871424 3.09207889,22.7071233 2.74962118,22.432463 L10.0950247,15.0870594 L13.9848068,18.9768415 L14.1878486,18.7737996 L14.2030419,18.7889929 L17.6549753,15.3370594 L24.9498374,22.6319215 Z M2.00810114,21.0526627 C2.00273908,20.9929669 2,20.9325153 2,20.871424 L2,7.12857603 C2,7.08414302 2.00144896,7.04004843 2.00430222,6.99633695 L9.03436454,14.0263993 L2.00810114,21.0526627 Z"></path>
+        </svg>
+    </a>
+    
+
+    
+
+    
+    <a class="social-icon" href="https://twitter.com/Sushmanth__" target="_blank" rel="noopener" title="Twitter">
+        <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+            <path d="M8.991284,24.971612 C19.180436,24.971612 24.752372,16.530224 24.752372,9.210524 C24.752372,8.970656 24.747512,8.731868 24.736496,8.494376 C25.818008,7.712564 26.758256,6.737 27.5,5.62622 C26.507372,6.067076 25.439252,6.364292 24.318752,6.498212 C25.462472,5.812628 26.340512,4.727444 26.754584,3.434036 C25.684088,4.068536 24.499004,4.53002 23.23724,4.778528 C22.226468,3.701876 20.786828,3.028388 19.193828,3.028388 C16.134404,3.028388 13.653536,5.509256 13.653536,8.567492 C13.653536,9.0023 13.702244,9.424904 13.797176,9.830552 C9.19346,9.599108 5.11106,7.39472 2.3792,4.04294 C1.903028,4.861364 1.629032,5.812628 1.629032,6.827072 C1.629032,8.74904 2.606972,10.445612 4.094024,11.438132 C3.185528,11.41016 2.331788,11.160464 1.585184,10.745096 C1.583888,10.768208 1.583888,10.791428 1.583888,10.815728 C1.583888,13.49888 3.493652,15.738584 6.028088,16.246508 C5.562932,16.373084 5.07326,16.44134 4.56782,16.44134 C4.210988,16.44134 3.863876,16.406024 3.526484,16.34144 C4.231724,18.542264 6.276596,20.143796 8.701412,20.18894 C6.805148,21.674696 4.416836,22.56008 1.821488,22.56008 C1.374476,22.56008 0.93362,22.534592 0.5,22.4834 C2.951708,24.054476 5.862524,24.971612 8.991284,24.971612"></path>
+        </svg>
+    </a>
+    
+
+    
+    <a class="social-icon" href="https://www.instagram.com/sushmanth.__.reddy/" target="_blank" rel="noopener" title="Instagram">
+        <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+             <path d="M14.0000238,2.00378571 C17.2579762,2.00378571 17.6665,2.01759524 18.9460238,2.07597619 C20.222881,2.13421429 21.0949286,2.33702381 21.8579762,2.63359524 C22.6468333,2.94011905 23.3158333,3.35030952 23.9827857,4.01721429 C24.6496905,4.68416667 25.059881,5.35316667 25.3664524,6.14202381 C25.6629762,6.90507143 25.8657857,7.77711905 25.9240238,9.05397619 C25.9824048,10.3335 25.9962143,10.7420238 25.9962143,14.0000238 C25.9962143,17.2579762 25.9824048,17.6665 25.9240238,18.9460238 C25.8657857,20.222881 25.6629762,21.0949286 25.3664524,21.8579762 C25.059881,22.6468333 24.6496905,23.3158333 23.9827857,23.9827857 C23.3158333,24.6496905 22.6468333,25.059881 21.8579762,25.3664524 C21.0949286,25.6629762 20.222881,25.8657857 18.9460238,25.9240238 C17.6665,25.9824048 17.2579762,25.9962143 14.0000238,25.9962143 C10.7420238,25.9962143 10.3335,25.9824048 9.05397619,25.9240238 C7.77711905,25.8657857 6.90507143,25.6629762 6.14202381,25.3664524 C5.35316667,25.059881 4.68416667,24.6496905 4.01721429,23.9827857 C3.35030952,23.3158333 2.94011905,22.6468333 2.63359524,21.8579762 C2.33702381,21.0949286 2.13421429,20.222881 2.07597619,18.9460238 C2.01759524,17.6665 2.00378571,17.2579762 2.00378571,14.0000238 C2.00378571,10.7420238 2.01759524,10.3335 2.07597619,9.05397619 C2.13421429,7.77711905 2.33702381,6.90507143 2.63359524,6.14202381 C2.94011905,5.35316667 3.35030952,4.68416667 4.01721429,4.01721429 C4.68416667,3.35030952 5.35316667,2.94011905 6.14202381,2.63359524 C6.90507143,2.33702381 7.77711905,2.13421429 9.05397619,2.07597619 C10.3335,2.01759524 10.7420238,2.00378571 14.0000238,2.00378571 Z M14.0000238,4.1652619 C10.796881,4.1652619 10.4174524,4.1775 9.1525,4.23521429 C7.98288095,4.28854762 7.34769048,4.48397619 6.92497619,4.6482619 C6.36502381,4.86588095 5.96540476,5.12583333 5.54564286,5.54564286 C5.12583333,5.96540476 4.86588095,6.36502381 4.6482619,6.92497619 C4.48397619,7.34769048 4.28854762,7.98288095 4.23521429,9.1525 C4.1775,10.4174524 4.1652619,10.796881 4.1652619,14.0000238 C4.1652619,17.203119 4.1775,17.5825476 4.23521429,18.8475 C4.28854762,20.017119 4.48397619,20.6523095 4.6482619,21.0750238 C4.86588095,21.6349762 5.12588095,22.0345952 5.54564286,22.4543571 C5.96540476,22.8741667 6.36502381,23.134119 6.92497619,23.3517381 C7.34769048,23.5160238 7.98288095,23.7114524 9.1525,23.7647857 C10.4173095,23.8225 10.7966429,23.8347381 14.0000238,23.8347381 C17.2033571,23.8347381 17.5827381,23.8225 18.8475,23.7647857 C20.017119,23.7114524 20.6523095,23.5160238 21.0750238,23.3517381 C21.6349762,23.134119 22.0345952,22.8741667 22.4543571,22.4543571 C22.8741667,22.0345952 23.134119,21.6349762 23.3517381,21.0750238 C23.5160238,20.6523095 23.7114524,20.017119 23.7647857,18.8475 C23.8225,17.5825476 23.8347381,17.203119 23.8347381,14.0000238 C23.8347381,10.796881 23.8225,10.4174524 23.7647857,9.1525 C23.7114524,7.98288095 23.5160238,7.34769048 23.3517381,6.92497619 C23.134119,6.36502381 22.8741667,5.96540476 22.4543571,5.54564286 C22.0345952,5.12583333 21.6349762,4.86588095 21.0750238,4.6482619 C20.6523095,4.48397619 20.017119,4.28854762 18.8475,4.23521429 C17.5825476,4.1775 17.203119,4.1652619 14.0000238,4.1652619 Z M14.0000238,17.9987381 C16.2084524,17.9987381 17.9987381,16.2084524 17.9987381,14.0000238 C17.9987381,11.7915476 16.2084524,10.0012619 14.0000238,10.0012619 C11.7915476,10.0012619 10.0012619,11.7915476 10.0012619,14.0000238 C10.0012619,16.2084524 11.7915476,17.9987381 14.0000238,17.9987381 Z M14.0000238,7.83978571 C17.4022143,7.83978571 20.1602143,10.5977857 20.1602143,14.0000238 C20.1602143,17.4022143 17.4022143,20.1602143 14.0000238,20.1602143 C10.5977857,20.1602143 7.83978571,17.4022143 7.83978571,14.0000238 C7.83978571,10.5977857 10.5977857,7.83978571 14.0000238,7.83978571 Z M21.8431667,7.59640476 C21.8431667,8.39145238 21.1986429,9.03592857 20.4035952,9.03592857 C19.6085952,9.03592857 18.9640714,8.39145238 18.9640714,7.59640476 C18.9640714,6.80135714 19.6085952,6.15683333 20.4035952,6.15683333 C21.1986429,6.15683333 21.8431667,6.80135714 21.8431667,7.59640476 Z"></path>
+        </svg>
+    </a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <a class="social-icon" href="https://www.linkedin.com/in/sushmanth-reddy-mereddy-b942811b1/" target="_blank" rel="noopener" title="LinkedIn">
+        <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+            <path d="M2,3.654102 C2,2.69908141 2.79442509,1.92397846 3.77383592,1.92397846 L24.2261641,1.92397846 C25.2058917,1.92397846 26,2.69908141 26,3.654102 L26,24.3462148 C26,25.3015521 25.2058917,26.0760215 24.2261641,26.0760215 L3.77383592,26.0760215 C2.79442509,26.0760215 2,25.3015521 2,24.3465315 L2,3.65378524 L2,3.654102 Z M9.27526132,22.1415901 L9.27526132,11.2356668 L5.65030092,11.2356668 L5.65030092,22.1415901 L9.27557808,22.1415901 L9.27526132,22.1415901 Z M7.46341463,9.74691162 C8.72727273,9.74691162 9.51409566,8.90940767 9.51409566,7.86284447 C9.49033893,6.79252455 8.72727273,5.97846056 7.48748812,5.97846056 C6.24675325,5.97846056 5.43649034,6.79252455 5.43649034,7.86284447 C5.43649034,8.90940767 6.22299652,9.74691162 7.4396579,9.74691162 L7.46309788,9.74691162 L7.46341463,9.74691162 Z M11.2815965,22.1415901 L14.9062401,22.1415901 L14.9062401,16.0519481 C14.9062401,15.7263225 14.9299968,15.4000634 15.0256573,15.1675641 C15.2876148,14.5159962 15.8840672,13.8416218 16.8856509,13.8416218 C18.1970225,13.8416218 18.7218879,14.8416218 18.7218879,16.3078872 L18.7218879,22.1415901 L22.3465315,22.1415901 L22.3465315,15.8885017 C22.3465315,12.5388027 20.5584416,10.9800443 18.1735825,10.9800443 C16.2182452,10.9800443 15.3595185,12.072854 14.8824834,12.8172315 L14.9065569,12.8172315 L14.9065569,11.2359835 L11.2819132,11.2359835 C11.3291099,12.2591067 11.2815965,22.1419069 11.2815965,22.1419069 L11.2815965,22.1415901 Z"></path>
+        </svg>
+    </a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    <a class="social-icon" href="https://github.com/sushmanthreddy" target="_blank" rel="noopener" title="GitHub">
+        <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+            <path d="M13.9988029,1.32087331 C6.82105037,1.32087331 1,7.14112562 1,14.3212723 C1,20.0649109 4.72454649,24.9370678 9.89038951,26.6560892 C10.5408085,26.7757983 10.7778323,26.374374 10.7778323,26.0296121 C10.7778323,25.7215609 10.7666595,24.9035493 10.760275,23.8189856 C7.14426471,24.6042767 6.38131925,22.0760223 6.38131925,22.0760223 C5.78995672,20.5740732 4.93762853,20.1742451 4.93762853,20.1742451 C3.75729765,19.3682044 5.02701126,19.3841656 5.02701126,19.3841656 C6.33183953,19.4759425 7.01817121,20.7241085 7.01817121,20.7241085 C8.17775254,22.7104801 10.0611744,22.1366749 10.8017741,21.8038838 C10.919887,20.9643246 11.2558703,20.3913175 11.6269683,20.066507 C8.74038491,19.7385043 5.70536235,18.6228163 5.70536235,13.6413251 C5.70536235,12.2223743 6.21213051,11.0611968 7.04370914,10.1530044 C6.90963504,9.82420367 6.46351945,8.50181809 7.17139875,6.71256734 C7.17139875,6.71256734 8.26234691,6.36301702 10.7459099,8.04532771 C11.78259,7.75642995 12.8950858,7.61277914 14.000399,7.60719272 C15.1049142,7.61277914 16.2166119,7.75642995 17.2548881,8.04532771 C19.736855,6.36301702 20.8262071,6.71256734 20.8262071,6.71256734 C21.5356825,8.50181809 21.0895669,9.82420367 20.9562909,10.1530044 C21.7894656,11.0611968 22.2922435,12.2223743 22.2922435,13.6413251 C22.2922435,18.6355852 19.2524325,19.734514 16.3570705,20.0561322 C16.8231376,20.4575564 17.2389269,21.2508282 17.2389269,22.4638795 C17.2389269,24.2012564 17.2229657,25.603448 17.2229657,26.0296121 C17.2229657,26.3775663 17.4575954,26.7821827 18.116793,26.6552912 C23.2786458,24.9322794 27,20.0633148 27,14.3212723 C27,7.14112562 21.1789496,1.32087331 13.9988029,1.32087331"></path>
+        </svg>
+    </a>
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</div>
+
+
+
+
+    <p><a href="https://github.com/kimcc/hugo-theme-noteworthy" target="_blank" rel="noopener">Noteworthy theme</a></p>
+    <p><a href="https://gohugo.io" target="_blank" rel="noopener">Built with Hugo</a></p>
+
+	<script src="https://sushmanthreddy.github.io/js/main.min.a7205ef73b078c8daed6fe1b0826e8ba229ffabbb69d299d9446cf41f2c7d8aa.js" integrity="sha256-pyBe9zsHjI2u1v4bCCbouiKf+ru2nSmdlEbPQfLH2Ko=" crossorigin="anonymous"></script>
+</footer>
+
+</nav>
+
+        <div id="content" class="content-container">
+        
+
+<h1 class="post-title">Deep learning self notes</h1>
+    
+    <time>November 21, 2020</time>
+    
+    <div>
+        <p>
+        <p>Here in this turoial ,i have learned differneces of DL , ML and AI</p>
+<h1 id="machine-learning">Machine learning</h1>
+<p>Machine learning has three parts</p>
+<ol>
+<li>supervised learning</li>
+<li>unsupervised learning</li>
+<li>semi supervised learning</li>
+</ol>
+<p>supervised learning mainly focus on sequential data there are two types
+<em>regression</em>
+<em>classification</em></p>
+<h3 id="supervised-learning">supervised learning</h3>
+<p>It is completely dependent on features and it has regression has multiple regression values for different features and
+classfication has two types and binary classification , multiple class configuration and multilabel class configuration</p>
+<h3 id="unsupervised-learning">unsupervised learning</h3>
+<p>It has mainly thre types clustering ,segmentation and reduce dimension
+clustering mainly focus on making groups of a particular tribe and different types of tribes are made by given data.</p>
+<h3 id="semisupervised-learning">semisupervised learning</h3>
+<p>It has typically called as baby which takes input at starting and further on it will learn through the inputs given example is netflix recommendation system</p>
+<p>ANN mainy works on tabular data
+CNN mainly works on images and video data
+RNN mainly works on text data it works through sequence of data.</p>
+<h3 id="how-an-neural-netowrk-works">How an neural netowrk works?</h3>
+<p>there are mainly two operations goes in neuran
+lets take maths example</p>
+<blockquote>
+<p>Y=w1<em>x1+w2</em>x2+w3*x3
+and substitute in maths function called as activation function
+ex: sigmoid</p>
+</blockquote>
+<h3 id="activation-functions">ACTIVATION FUNCTIONS</h3>
+<p>activation funnctions are used to normalize the value between ranges,sum of weights and bias are substituted in activation function</p>
+<h4 id="sigmoid-activation-function">SIGMOID ACTIVATION FUNCTION</h4>
+<p>Here value lies in between 0 and 1 , and formula for the function is and it is mainly used for binary classfication value below the 0.5 is taken as 0 and value above the 0.5 is taken as 1 and mainly used for classification problem and differentiation of sigmooid value lies in 0 to 0.25</p>
+<p>The Sigmoid function is the most frequently used activation function in the beginning of deep learning. It is a smoothing function that is easy to derive.
+In the sigmoid function, we can see that its output is in the open interval (0, 1. We car think oKbrobability, but in the Strifet sense, don&rsquo;t treat it as probability. The sigmoid function was once more pepular. It can be thought af as the firing rate of a neuron. In the middle where the slope is relatively large, itis the sensitive alda or inesnetroh. Of the sides where he slope very gentle, it is the neuron&rsquo;s inhibitory area.
+The function itself has certain defects.</p>
+<ol>
+<li>When the input is slightly away from the coordinate origin, the gradient of the function becomes very small, almost zero. In the process of neural network backpropagation, we all use the chain rule of differential to calculate the differential of each weight w. When the backpropagation passes through the sigmod function, the differential on this chain is very small.
+Moreover, it may pass through many sigmod functions, which will eventually cause the weight w to have little effect on the loss function, which is not conducive to the optimization of the weight. This The problem is called gradient saturation or gradient dispersion.</li>
+<li>The function output is not centered on 0, which will reduce the efficiency of weight update.</li>
+<li>The sigmod function performs exponential operations, which is slower for computers.</li>
+</ol>
+<p>Advantages of Sigmoid Function</p>
+<ol>
+<li>Smooth gradient, preventing &ldquo;jumps&rdquo; in output values.</li>
+<li>Output values bound between 0 and 1, normalizing the output of each neuron.</li>
+<li>Clear predictions, i.e very close to 1 or 0.</li>
+</ol>
+<blockquote>
+<p>z=1/1+e^-y and value of y sum of weights and bias is substituted</p>
+</blockquote>
+<p>and here is following graph</p>
+<img src="../images/ml&dl/1200px-Logistic-curve.svg.png" alt="" width="300" height="300">
+<h4 id="relu">ReLU</h4>
+<p>here value lies between 0 and infinity th formula for the following function is</p>
+<blockquote>
+<p>max(0,y) the value either 0 or positive but not less than 0.</p>
+</blockquote>
+<p>and dervative of ReLU function is 0 or 1 it has only one value so that it doesnt have problem vanishing gradient descent problem and problem caused by ReLU is solved by leaky Relu ,the problem with relu is it makes the dead neuron it is called as dying relu</p>
+<p>The ReLU function is actually a function that takes the maximum value. Note that this is not fully interval-derivable, but we can take sub-gradient, as shown in the figure above. Although ReLU is simple, it is an important achievement in recent years.
+The ReLU (Rectified Linear Unit) function is an activation function that is currently more popular. Compared with the sigmod function and the tan function, it has the following advantages:</p>
+<ol>
+<li>When the input is positive, there is no gradient saturation problem.</li>
+<li>The calculation speed is much faster. The ReLU function has only a linear relationship. Whether it is forward or backward, it is much faster than sigmod and tanh. (Sigmod and tanh need to calculate the exponent, which will be slower.)
+Ofcourse, there are disadvantages:</li>
+<li>When the input is negative, ReLU is completely inactive, which means that once a negative number is entered, ReLU will die. In this way, in the forward propagation process, it is not a problem. Some areas are sensitive and some are insensitive.
+But in the backpropagation process, if you enter a negative number, the gradient will be completely zero, which has the same problem as the sigmod function and tan function.</li>
+<li>We find that the output of the ReLU function is either 0 or a positive number, which means that the ReLU function is not a 0-centric function.</li>
+</ol>
+<img src="1*0yhJ7DbhOX-tRUseljjYoA.png" alt="" width="300" height="300">
+<h4 id="leaky-relu">Leaky ReLU</h4>
+<p>f(x) = max (0.01*x, x)</p>
+<img src="../images/ml&dl/1.png" alt="" width="300" height="300">
+<p>In order to solve the Dead ReLU Problem, people proposed to set the first half of ReLU 0.01x instead of 0. Another intuitive idea is a parameter-based method, Parametric ReLU: f(x)= max(alpha x,×), which alpha can be learned from back propagation. In theory, Leaky ReLU has all the advantages of ReLU, plus there will be no problems with Dead ReLU, but in actual operation, it has not been fully proved that Leaky ReLU is always better than ReLU,but it can cause the vanishing gradient descent problem so we need to switch something better than leaky relu that is ELU</p>
+<h4 id="elu">ELU</h4>
+<p>ELU is also proposed to solve the problems of ReLU. Obviously, ELU has all the advantages of ReLU, and:
+• No Dead ReLU issues
+• The mean of the output is close to 0, zero-centered
+One small problem is that it is slightly more computationally intensive. Similar to Leaky ReLU, although theoretically better than ReLU, there is currently no good evidence in practice that ELU is always better than ReLU.</p>
+<img src="../images/ml&dl/1*RD0lIYqB5L2LrI2VTIZqGw.png" alt="" width="300" height="300">
+<h4 id="prelu">PReLU</h4>
+<p>PReLU is also an improved version of ReLU. In the negative region, PReLU has a small slope, which can also avoid the problem of ReLU death. Compared to ELU, PReLU is a linear operation in the negative region. Although the slope is small, it does not tend to 0, which is a certain advantage.</p>
+<p>We look at the formula of PReLU. The parameter a is generally a number between 0 and 1, and it is generally relatively small
+such as a few zeros. When a = 0.01, we call PReLU as Leaky Relu, it is regarded as a special case PReLU it.
+Above, y; is any input on the ith channel and a; is the negative slope which is a learnable parameter.</p>
+<p>• if a =0, f becomes ReLU
+• if a&gt;O f becomes leakv ReLU
+• if a; is a learnable parameter, f becomes PReLU</p>
+<h4 id="swish">SWISH</h4>
+<p>The formula is: y = x * sigmoid (x)
+Swish&rsquo;s design was inspired by the use of sigmoid functions for gating in LSTMs and highway networks. We use the same value for gating to simplify the gating mechanism, which is called self-gating.
+The advantage of self-gating is that it only requires a simple scalar input, while normal gating requires multiple scalar inputs.
+This feature enables self-gated activation functions such as Swish to easily replace activation functions that take a single scalar as input (such as ReLU) without changing the hidden capacity or number of parameters.</p>
+<ol>
+<li>Unboundedness (unboundedness) is helpful to prevent gradient from gradually approaching 0 during slow training, causing saturation. At the same time, being bounded has advantages, because bounded active functions can have strong requairzation, and larger negative inputs will be resolved.</li>
+<li>At the same time, smoothness also plays an important role in optimization and generalization.
+used only when there is more than 40 layers</li>
+</ol>
+<img src="../images/ml&dl/swish.png" alt="" width="300" height="300">
+<h4 id="softplus-function">softplus function</h4>
+<p>The softplus function is similar to the ReLU function, but it is relatively smooth. It is unilateral suppression like ReLU.It has a wide acceptance range (0, + inf).solves dead neuron problem
+Softplus function: f(x) = In(1 + exp x)</p>
+<p>helps in the differentiation at zero</p>
+<img src="../images/ml&dl/main-qimg-4d9834b37a3705da3332ff6af6f6eaaf.png" alt="" width="300" height="300">
+<h4 id="softmax-function">softmax function</h4>
+<p>used for multi class classification</p>
+<p>for an arbitrary real vector of length K, Softmax can compress it into a real vector of length K with a value in the range (0, 1),
+and the sum of the elements in the vector is 1. It also has many applications in Multiclass Classification and neural networks. Softmax is different from the normal max function: the max function only outputs the largest value, and Softmax ensures that smaller values have a smaller probability
+and will not be discarded directly. It is a &ldquo;max&rdquo; that is &ldquo;soft&rdquo;. The denominator of the Softmax function combines all factors of the original output value, which means that the different probabilities obtained by the Softmax function are related to each other. In the case of binary classification, for Sigmoid, there</p>
+<p>sigmoid and softmax are actually kept in last layer</p>
+<img src="../images/ml&dl/2.png" alt="" width="300" height="300">
+<h4 id="threshold-activation">Threshold Activation</h4>
+<p>Here value lies in between -1 to 1 and dervivative of function lies in between 0 to 1 and it can cause vanishing gradient descent problem and gradient descent problem</p>
+<p>Tanh is a hyperbolic tangent function. The curves of tan function and sigmod function are relatively similar. Let&rsquo;s compare them. First of all, when the input is large or small, the output is almost smooth and the gradient is small, which is not
+conducive to weight update. The difference is the output interval.
+The output interval of tanh is 1), and the whole function is 0-centric, which is better than sigmod. In general binary classification problems, the tan function is used for the hidden layer and the sigmod function is used for the output layer. However, these are not static, and the specific activation function to be used must be analyzed according to the
+specific problem, or it depends on debugging.</p>
+<img src="../images/ml&dl/Unknown.png" alt="" width="300" height="300">
+<h3 id="loss-function">Loss Function</h3>
+<p>and loss function is sigma((y-y^)^2) and new weight upgradation is happened</p>
+<blockquote>
+<p>Wnew=Wold-L.R(diff(LOSS)/diff(Wold))</p>
+</blockquote>
+<h3 id="gradient-descent">gradient descent</h3>
+<p>In mathematics genrally gradient descent is also called as steepest descent is useed to find local minimum of the function,here value gets decreased as differentiation happens and learning rate.</p>
+<img src="../images/ml&dl/700px-Gradient_descent.svg.png" alt="" width="300" height="300"> 
+<h3 id="back-propagation">back propagation</h3>
+<p>here in this the weights are updates by using chain rule ,chain rule is nothing but continous chain process happpened to update weights ,weights are effecting the outputs so we include outputs also in chain rule and weight get updated.
+And epoch means one forward and backwqard propogation.</p>
+<img src="../images/ml&dl/Screenshot 2022-11-26 at 3.17.15 PM.png" alt="" width="300" height="300"> 
+<h3 id="vanishing-gradient-descent">Vanishing gradient descent</h3>
+<p>Here the value of dervative of sigmoid function has range between 0 to 0.25 so the change in value ios very low compared to other actuvation function to solve this problem only new method has been approached that is ReLU function.</p>
+<img src="../images/ml&dl/1*0yhJ7DbhOX-tRUseljjYoA.png" alt="" width="300" height="300"> 
+<h3 id="exploding-gradient-descent">exploding gradient descent</h3>
+<p>when weights are higher the exploding gradient descent problem occurs this need to be stoped for that we can use ReLU function.</p>
+<h3 id="dropout-and-regularization">Dropout and Regularization</h3>
+<p>here in this dropout part the research is done by two people called  srivastav and geofrey hinton some feautures are selected randomly and trained on train data but for test data  all networks are activated
+for that p value is seleted according to that and on test data weight is multiplied with p value for test data .we can find drop out value using hyper parameter optimization .</p>
+<h3 id="weight-initialization">weight initialization</h3>
+<p>here three basic rules of weight inittialization is</p>
+<ol>
+<li>weight should be small</li>
+<li>weight should not be same</li>
+<li>weight should have good variance</li>
+</ol>
+<p>methods for weight intialization</p>
+<h4 id="uniform-distribution">Uniform distribution</h4>
+<p>here weights are initialized between a,b
+a=-(1/sqrt(fan_in))
+b=(1/sqrt(fan_in))
+and value is (a,b)</p>
+<h4 id="xavier-normal">xavier normal</h4>
+<p>here weight are initailizaed between (0,sigma)
+and id normal distribution works well with sigmoid activation function</p>
+<p>sigma=sqrt(2/fan_in+fan_out)</p>
+<h4 id="xavier-uniform">xavier uniform</h4>
+<p>here weigth are initialized on uniform distribution works well with sigmoid activation function</p>
+<p>weight lies between (-sqrt(6)/sqrt(fan_in+fan_out),sqrt(6)/sqrt(fan_in+fan_out))</p>
+<h4 id="he-uniform">he uniform</h4>
+<p>here weight are initialized between and uniform distribution and works well with ReLU actuvation function</p>
+<p>w=(-sqrt(6/fan_in),sqrt(6/fan_in)</p>
+<h4 id="he-normal">he normal</h4>
+<p>here weight initialized between normal distribution and work welll with ReLU actuvation functio
+w=(0,sqrt(2/fan_in))</p>
+<p>The main difference between gradient descent ,sgd and mini batch sgd is gd need to have more computational power than compared batch sgd and for convergence of points is straigh for gd and msgd it si zig zag and mini batch sgd is time consuming</p>
+<p>local maxima and local minima ,here local minima type of graph mainly occurs in deep learniing techiniques and convex function type is for machine learning for linear and logistic  regression,due to noise in mini batch sgd we can used sgd with momnetum</p>
+<h3 id="sgd-with-momentun">sgd with momentun</h3>
+<p>It is used for reducing noise while using sgd with mini batch we use exponential weighted average</p>
+<img src="../images/ml&dl/Screenshot 2022-11-27 at 6.27.03 PM.png" alt="" width="400" height="500"> 
+<img src="../images/ml&dl/Screenshot 2022-11-27 at 6.24.06 PM.png" alt="" width="400" height="500"> 
+<img src="../images/ml&dl/Screenshot 2022-11-27 at 9.17.30 AM.png" alt="" width="300" height="300"> 
+<img src="../images/ml&dl/Screenshot 2022-11-27 at 9.18.12 AM.png" alt="" width="300" height="300">
+<h3 id="adagrad-optimizer">ADAGRAD OPTIMIZER</h3>
+<p>Adagrad is an optimizer with parameter-specific learning rates, which are adapted relative to how frequently a parameter gets updated during training. The more updates a parameter receives, the smaller the updates.
+One main problem with adagrad is the alpha value for learning rate increases heavily sometimes.</p>
+<p>Adagrad stands for Adaptive Gradient Optimizer.  There were optimizers like Gradient Descent, Stochastic Gradient Descent, mini-batch SGD, all were used to reduce the loss function with respect to the weights.</p>
+<img src="../images/ml&dl/Screenshot 2022-11-27 at 10.03.33 AM.png" alt="" width="300" height="300">
+<img src="../images/ml&dl/Screenshot 2022-11-27 at 10.03.59 AM.png" alt="" width="300" height="300">
+<p>w(t) = value of w at current iteration, w(t-1) = value of w at previous iteration and η = learning rate.
+In SGD and mini-batch SGD, the value of η used to be the same for each weight, or say for each parameter. Typically, η = 0.01.  But in Adagrad Optimizer the core idea is that each weight has a different learning rate (η). This modification has great importance, in the real-world dataset, some features are sparse (for example, in Bag of Words most of the features are zero so it’s sparse) and some are dense (most of the features will be noon-zero), so keeping the same value of learning rate for all the weights is not good for optimization.</p>
+<img src="../images/ml&dl/Screenshot 2022-11-27 at 10.04.37 AM.png" alt="" width="300" height="300">
+<p>Here, η is a constant number, epsilon is a small positive value number to avoid divide by zero error if in case alpha(t) becomes 0 because if alpha(t) become zero then the learning rate will become zero which in turn after multiplying by derivative will make w(old) = w(new), and this will lead to small convergence.</p>
+<img src="../images/ml&dl/Screenshot 2022-11-27 at 10.23.56 AM.png" alt="" width="300" height="300">
+<p>is derivative of loss with respect to weight and g_i^2 will always be positive since its a square term, which means that alpha(t) will also remain positive, this implies that alpha(t) &gt;= alpha(t-1).</p>
+<p>It can be seen from the formula that as alpha(t) and \eta_t^&rsquo; is inversely proportional to one another, this implies that as alpha(t) will increase, \eta_t^&rsquo; will decrease. This means that as the number of iterations will increase, the learning rate will reduce adaptively, so you no need to manually select the learning rate.</p>
+<ol>
+<li>Advantages of Adagrad:</li>
+<li>No manual tuning of the learning rate required.</li>
+<li>Faster convergence</li>
+</ol>
+<p>More reliable
+One main disadvantage of Adagrad optimizer is that alpha(t) can become large as the number of iterations will increase and due to this \eta_t^&rsquo; will decrease at the larger rate. This will make the old weight almost equal to the new weight which may lead to slow convergence</p>
+<h3 id="adadelta-and-rmsprop">adadelta and rmsprop</h3>
+<p>to not increse the value of heavily we use adadelta and we to solve this problem by using Wavg</p>
+<img src="../images/ml&dl/Screenshot 2022-11-27 at 2.25.20 PM.png" alt="" width="300" height="300">
+<h3 id="stoicastic-gradient-descent">stoicastic gradient descent</h3>
+<p>Doesnt work like gd it takes one loss and calculates it and for 1 epoch the number of iterations done in stoicatsic gradient number of records</p>
+<p>difference between gd vs sgd vs mini sgd</p>
+<blockquote>
+<p>gd takes whole data
+sgd takes only one data
+mini sgd takes batches of data</p>
+</blockquote>
+<h2 id="loss-functions">LOSS FUNCTIONS</h2>
+<p>There three tyoe of functions loss function,cost function and error function .so loss function is difference between the expected output minus real output of one data point and cost functionm is batch of points..and error function is same like loss function
+The loss function is very important in machine learning or deep learning. let’s say you are working on any problem and you have trained a machine learning model on the dataset and are ready to put it in front of your client. But how can you be sure that this model will give the optimum result? Is there a metric or a technique that will help you quickly evaluate your model on the dataset?</p>
+<p>Wikipedia says, in mathematical optimization and decision theory, a loss or cost function (sometimes also called an error function) is a function that maps an event or values of one or more variables onto a real number intuitively representing some “cost” associated with the event.
+In simple terms, the Loss function is a method of evaluating how well your algorithm is modeling your dataset. It is a mathematical function of the parameters of the machine learning algorithm.</p>
+<p>In simple linear regression, prediction is calculated using slope(m) and intercept(b). the loss function for this is the (Yi – Yihat)^2 i.e loss function is the function of slope and intercept.</p>
+<h5 id="regression">Regression</h5>
+<p>MSE(Mean Squared Error)
+MAE(Mean Absolute Error)
+Hubber loss</p>
+<h5 id="classification">Classification</h5>
+<p>Binary cross-entropy
+Categorical cross-entropy</p>
+<h4 id="square-mean-error">square mean error</h4>
+<p>(y-y&rsquo;)^2 is mean square loss is not robust .</p>
+<p>Regression Loss
+Mean Squared Error/Squared loss/ L2 loss –
+The Mean Squared Error (MSE) is the simplest and most common loss function. To calculate the MSE, you take the difference between the actual value and model prediction, square it, and average it across the whole dataset.</p>
+<p>Advantage</p>
+<ol>
+<li>
+<p>Easy to interpret.</p>
+</li>
+<li>
+<p>Always differential because of the square.</p>
+</li>
+<li>
+<p>Only one local minima.
+Disadvantage</p>
+</li>
+<li>
+<p>Error unit in the square. because the unit in the square is not understood properly.</p>
+</li>
+<li>
+<p>Not robust to outlier</p>
+</li>
+</ol>
+<h4 id="mean-absolute-error">mean absolute error</h4>
+<p>The Mean Absolute Error (MAE) is also the simplest loss function. To calculate the MAE, you take the difference between the actual value and model prediction and average it across the whole dataset.</p>
+<p>Advantage</p>
+<ol>
+<li>
+<p>Intuitive and easy</p>
+</li>
+<li>
+<p>Error Unit Same as the output column.</p>
+</li>
+<li>
+<p>Robust to outlier
+Disadvantage</p>
+</li>
+<li>
+<p>Graph, not differential. we can not use gradient descent directly, then we can subgradient calculation.</p>
+</li>
+</ol>
+<h4 id="huber-loss">huber loss</h4>
+<img src="../images/ml&dl/Screenshot 2022-11-28 at 12.31.29 AM.png" alt="" width="500" height="500">
+<h4 id="binary-class-entropy">Binary class entropy</h4>
+<img src="../images/ml&dl/Screenshot 2022-11-28 at 12.32.51 AM.png" alt="" width="500" height="500">
+<h4 id="multi-class-entropy">multi class entropy</h4>
+<p>loss function cheat sheet<a href="https://www.analyticsvidhya.com/blog/2022/06/understanding-loss-function-in-deep-learning/">loss function</a>.</p>
+
+        </p>
+    </div>
+    
+
+    
+
+    <div class="page-footer">
+        
+        <hr class="footer-divider">
+        
+            <a class="tag" href="/tags/krishnaik">#krishnaik</a>
+        
+            <a class="tag" href="/tags/deep-learning">#deep learning</a>
+        
+      
+    </div>
+
+
+        
+
+<link rel="stylesheet" type="text/css" href="/css/katex.min.css" crossorigin="anonymous">
+<script type="text/javascript" src="/js/katex.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/auto-render.min.js"onload="renderMathInElement(document.body);" crossorigin="anonymous"></script>
+
+        </div>
+        <footer class="footer-mobile">
+	<div class="social-icons">
+        
+    <a class="social-icon" href="mailto:sushmanthreddymereddy@gmail.com" target="_blank" rel="noopener" title="Email">
+        <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+            <path d="M25.2794292,5.59128519 L14,16.8707144 L2.72057081,5.59128519 C3.06733103,5.30237414 3.51336915,5.12857603 4,5.12857603 L24,5.12857603 C24.4866308,5.12857603 24.932669,5.30237414 25.2794292,5.59128519 Z M25.9956978,6.99633695 C25.998551,7.04004843 26,7.08414302 26,7.12857603 L26,20.871424 C26,21.0798433 25.9681197,21.2808166 25.9089697,21.4697335 L18.7156355,14.2763993 L25.9956978,6.99633695 Z M24.9498374,22.6319215 C24.6672737,22.7846939 24.3437653,22.871424 24,22.871424 L4,22.871424 C3.5268522,22.871424 3.09207889,22.7071233 2.74962118,22.432463 L10.0950247,15.0870594 L13.9848068,18.9768415 L14.1878486,18.7737996 L14.2030419,18.7889929 L17.6549753,15.3370594 L24.9498374,22.6319215 Z M2.00810114,21.0526627 C2.00273908,20.9929669 2,20.9325153 2,20.871424 L2,7.12857603 C2,7.08414302 2.00144896,7.04004843 2.00430222,6.99633695 L9.03436454,14.0263993 L2.00810114,21.0526627 Z"></path>
+        </svg>
+    </a>
+    
+
+    
+
+    
+    <a class="social-icon" href="https://twitter.com/Sushmanth__" target="_blank" rel="noopener" title="Twitter">
+        <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+            <path d="M8.991284,24.971612 C19.180436,24.971612 24.752372,16.530224 24.752372,9.210524 C24.752372,8.970656 24.747512,8.731868 24.736496,8.494376 C25.818008,7.712564 26.758256,6.737 27.5,5.62622 C26.507372,6.067076 25.439252,6.364292 24.318752,6.498212 C25.462472,5.812628 26.340512,4.727444 26.754584,3.434036 C25.684088,4.068536 24.499004,4.53002 23.23724,4.778528 C22.226468,3.701876 20.786828,3.028388 19.193828,3.028388 C16.134404,3.028388 13.653536,5.509256 13.653536,8.567492 C13.653536,9.0023 13.702244,9.424904 13.797176,9.830552 C9.19346,9.599108 5.11106,7.39472 2.3792,4.04294 C1.903028,4.861364 1.629032,5.812628 1.629032,6.827072 C1.629032,8.74904 2.606972,10.445612 4.094024,11.438132 C3.185528,11.41016 2.331788,11.160464 1.585184,10.745096 C1.583888,10.768208 1.583888,10.791428 1.583888,10.815728 C1.583888,13.49888 3.493652,15.738584 6.028088,16.246508 C5.562932,16.373084 5.07326,16.44134 4.56782,16.44134 C4.210988,16.44134 3.863876,16.406024 3.526484,16.34144 C4.231724,18.542264 6.276596,20.143796 8.701412,20.18894 C6.805148,21.674696 4.416836,22.56008 1.821488,22.56008 C1.374476,22.56008 0.93362,22.534592 0.5,22.4834 C2.951708,24.054476 5.862524,24.971612 8.991284,24.971612"></path>
+        </svg>
+    </a>
+    
+
+    
+    <a class="social-icon" href="https://www.instagram.com/sushmanth.__.reddy/" target="_blank" rel="noopener" title="Instagram">
+        <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+             <path d="M14.0000238,2.00378571 C17.2579762,2.00378571 17.6665,2.01759524 18.9460238,2.07597619 C20.222881,2.13421429 21.0949286,2.33702381 21.8579762,2.63359524 C22.6468333,2.94011905 23.3158333,3.35030952 23.9827857,4.01721429 C24.6496905,4.68416667 25.059881,5.35316667 25.3664524,6.14202381 C25.6629762,6.90507143 25.8657857,7.77711905 25.9240238,9.05397619 C25.9824048,10.3335 25.9962143,10.7420238 25.9962143,14.0000238 C25.9962143,17.2579762 25.9824048,17.6665 25.9240238,18.9460238 C25.8657857,20.222881 25.6629762,21.0949286 25.3664524,21.8579762 C25.059881,22.6468333 24.6496905,23.3158333 23.9827857,23.9827857 C23.3158333,24.6496905 22.6468333,25.059881 21.8579762,25.3664524 C21.0949286,25.6629762 20.222881,25.8657857 18.9460238,25.9240238 C17.6665,25.9824048 17.2579762,25.9962143 14.0000238,25.9962143 C10.7420238,25.9962143 10.3335,25.9824048 9.05397619,25.9240238 C7.77711905,25.8657857 6.90507143,25.6629762 6.14202381,25.3664524 C5.35316667,25.059881 4.68416667,24.6496905 4.01721429,23.9827857 C3.35030952,23.3158333 2.94011905,22.6468333 2.63359524,21.8579762 C2.33702381,21.0949286 2.13421429,20.222881 2.07597619,18.9460238 C2.01759524,17.6665 2.00378571,17.2579762 2.00378571,14.0000238 C2.00378571,10.7420238 2.01759524,10.3335 2.07597619,9.05397619 C2.13421429,7.77711905 2.33702381,6.90507143 2.63359524,6.14202381 C2.94011905,5.35316667 3.35030952,4.68416667 4.01721429,4.01721429 C4.68416667,3.35030952 5.35316667,2.94011905 6.14202381,2.63359524 C6.90507143,2.33702381 7.77711905,2.13421429 9.05397619,2.07597619 C10.3335,2.01759524 10.7420238,2.00378571 14.0000238,2.00378571 Z M14.0000238,4.1652619 C10.796881,4.1652619 10.4174524,4.1775 9.1525,4.23521429 C7.98288095,4.28854762 7.34769048,4.48397619 6.92497619,4.6482619 C6.36502381,4.86588095 5.96540476,5.12583333 5.54564286,5.54564286 C5.12583333,5.96540476 4.86588095,6.36502381 4.6482619,6.92497619 C4.48397619,7.34769048 4.28854762,7.98288095 4.23521429,9.1525 C4.1775,10.4174524 4.1652619,10.796881 4.1652619,14.0000238 C4.1652619,17.203119 4.1775,17.5825476 4.23521429,18.8475 C4.28854762,20.017119 4.48397619,20.6523095 4.6482619,21.0750238 C4.86588095,21.6349762 5.12588095,22.0345952 5.54564286,22.4543571 C5.96540476,22.8741667 6.36502381,23.134119 6.92497619,23.3517381 C7.34769048,23.5160238 7.98288095,23.7114524 9.1525,23.7647857 C10.4173095,23.8225 10.7966429,23.8347381 14.0000238,23.8347381 C17.2033571,23.8347381 17.5827381,23.8225 18.8475,23.7647857 C20.017119,23.7114524 20.6523095,23.5160238 21.0750238,23.3517381 C21.6349762,23.134119 22.0345952,22.8741667 22.4543571,22.4543571 C22.8741667,22.0345952 23.134119,21.6349762 23.3517381,21.0750238 C23.5160238,20.6523095 23.7114524,20.017119 23.7647857,18.8475 C23.8225,17.5825476 23.8347381,17.203119 23.8347381,14.0000238 C23.8347381,10.796881 23.8225,10.4174524 23.7647857,9.1525 C23.7114524,7.98288095 23.5160238,7.34769048 23.3517381,6.92497619 C23.134119,6.36502381 22.8741667,5.96540476 22.4543571,5.54564286 C22.0345952,5.12583333 21.6349762,4.86588095 21.0750238,4.6482619 C20.6523095,4.48397619 20.017119,4.28854762 18.8475,4.23521429 C17.5825476,4.1775 17.203119,4.1652619 14.0000238,4.1652619 Z M14.0000238,17.9987381 C16.2084524,17.9987381 17.9987381,16.2084524 17.9987381,14.0000238 C17.9987381,11.7915476 16.2084524,10.0012619 14.0000238,10.0012619 C11.7915476,10.0012619 10.0012619,11.7915476 10.0012619,14.0000238 C10.0012619,16.2084524 11.7915476,17.9987381 14.0000238,17.9987381 Z M14.0000238,7.83978571 C17.4022143,7.83978571 20.1602143,10.5977857 20.1602143,14.0000238 C20.1602143,17.4022143 17.4022143,20.1602143 14.0000238,20.1602143 C10.5977857,20.1602143 7.83978571,17.4022143 7.83978571,14.0000238 C7.83978571,10.5977857 10.5977857,7.83978571 14.0000238,7.83978571 Z M21.8431667,7.59640476 C21.8431667,8.39145238 21.1986429,9.03592857 20.4035952,9.03592857 C19.6085952,9.03592857 18.9640714,8.39145238 18.9640714,7.59640476 C18.9640714,6.80135714 19.6085952,6.15683333 20.4035952,6.15683333 C21.1986429,6.15683333 21.8431667,6.80135714 21.8431667,7.59640476 Z"></path>
+        </svg>
+    </a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <a class="social-icon" href="https://www.linkedin.com/in/sushmanth-reddy-mereddy-b942811b1/" target="_blank" rel="noopener" title="LinkedIn">
+        <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+            <path d="M2,3.654102 C2,2.69908141 2.79442509,1.92397846 3.77383592,1.92397846 L24.2261641,1.92397846 C25.2058917,1.92397846 26,2.69908141 26,3.654102 L26,24.3462148 C26,25.3015521 25.2058917,26.0760215 24.2261641,26.0760215 L3.77383592,26.0760215 C2.79442509,26.0760215 2,25.3015521 2,24.3465315 L2,3.65378524 L2,3.654102 Z M9.27526132,22.1415901 L9.27526132,11.2356668 L5.65030092,11.2356668 L5.65030092,22.1415901 L9.27557808,22.1415901 L9.27526132,22.1415901 Z M7.46341463,9.74691162 C8.72727273,9.74691162 9.51409566,8.90940767 9.51409566,7.86284447 C9.49033893,6.79252455 8.72727273,5.97846056 7.48748812,5.97846056 C6.24675325,5.97846056 5.43649034,6.79252455 5.43649034,7.86284447 C5.43649034,8.90940767 6.22299652,9.74691162 7.4396579,9.74691162 L7.46309788,9.74691162 L7.46341463,9.74691162 Z M11.2815965,22.1415901 L14.9062401,22.1415901 L14.9062401,16.0519481 C14.9062401,15.7263225 14.9299968,15.4000634 15.0256573,15.1675641 C15.2876148,14.5159962 15.8840672,13.8416218 16.8856509,13.8416218 C18.1970225,13.8416218 18.7218879,14.8416218 18.7218879,16.3078872 L18.7218879,22.1415901 L22.3465315,22.1415901 L22.3465315,15.8885017 C22.3465315,12.5388027 20.5584416,10.9800443 18.1735825,10.9800443 C16.2182452,10.9800443 15.3595185,12.072854 14.8824834,12.8172315 L14.9065569,12.8172315 L14.9065569,11.2359835 L11.2819132,11.2359835 C11.3291099,12.2591067 11.2815965,22.1419069 11.2815965,22.1419069 L11.2815965,22.1415901 Z"></path>
+        </svg>
+    </a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    <a class="social-icon" href="https://github.com/sushmanthreddy" target="_blank" rel="noopener" title="GitHub">
+        <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+            <path d="M13.9988029,1.32087331 C6.82105037,1.32087331 1,7.14112562 1,14.3212723 C1,20.0649109 4.72454649,24.9370678 9.89038951,26.6560892 C10.5408085,26.7757983 10.7778323,26.374374 10.7778323,26.0296121 C10.7778323,25.7215609 10.7666595,24.9035493 10.760275,23.8189856 C7.14426471,24.6042767 6.38131925,22.0760223 6.38131925,22.0760223 C5.78995672,20.5740732 4.93762853,20.1742451 4.93762853,20.1742451 C3.75729765,19.3682044 5.02701126,19.3841656 5.02701126,19.3841656 C6.33183953,19.4759425 7.01817121,20.7241085 7.01817121,20.7241085 C8.17775254,22.7104801 10.0611744,22.1366749 10.8017741,21.8038838 C10.919887,20.9643246 11.2558703,20.3913175 11.6269683,20.066507 C8.74038491,19.7385043 5.70536235,18.6228163 5.70536235,13.6413251 C5.70536235,12.2223743 6.21213051,11.0611968 7.04370914,10.1530044 C6.90963504,9.82420367 6.46351945,8.50181809 7.17139875,6.71256734 C7.17139875,6.71256734 8.26234691,6.36301702 10.7459099,8.04532771 C11.78259,7.75642995 12.8950858,7.61277914 14.000399,7.60719272 C15.1049142,7.61277914 16.2166119,7.75642995 17.2548881,8.04532771 C19.736855,6.36301702 20.8262071,6.71256734 20.8262071,6.71256734 C21.5356825,8.50181809 21.0895669,9.82420367 20.9562909,10.1530044 C21.7894656,11.0611968 22.2922435,12.2223743 22.2922435,13.6413251 C22.2922435,18.6355852 19.2524325,19.734514 16.3570705,20.0561322 C16.8231376,20.4575564 17.2389269,21.2508282 17.2389269,22.4638795 C17.2389269,24.2012564 17.2229657,25.603448 17.2229657,26.0296121 C17.2229657,26.3775663 17.4575954,26.7821827 18.116793,26.6552912 C23.2786458,24.9322794 27,20.0633148 27,14.3212723 C27,7.14112562 21.1789496,1.32087331 13.9988029,1.32087331"></path>
+        </svg>
+    </a>
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</div>
+
+
+
+
+	<div class="footer-mobile-links">
+        <p><a href="https://github.com/kimcc/hugo-theme-noteworthy" target="_blank" rel="noopener">Noteworthy theme</a></p>
+		<span class="divider-bar">|</span>
+        <p><a href="https://gohugo.io" target="_blank" rel="noopener">Built with Hugo</a></p>
+	</div>
+
+	<script src="https://sushmanthreddy.github.io/js/main.min.a7205ef73b078c8daed6fe1b0826e8ba229ffabbb69d299d9446cf41f2c7d8aa.js" integrity="sha256-pyBe9zsHjI2u1v4bCCbouiKf+ru2nSmdlEbPQfLH2Ko=" crossorigin="anonymous"></script>
+</footer>
+
+    </body>
+</html>
