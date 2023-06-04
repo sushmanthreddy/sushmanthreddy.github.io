@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GSOC on Sushmanth&#39;s blog</title>
+    <link>https://sushmanthreddy.github.io/tags/gsoc/</link>
+    <description>Recent content in GSOC on Sushmanth&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 04 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://sushmanthreddy.github.io/tags/gsoc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GSOC_2023_community_bonding</title>
+      <link>https://sushmanthreddy.github.io/posts/gsoc_2023_community_bonding/</link>
+      <pubDate>Sun, 04 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://sushmanthreddy.github.io/posts/gsoc_2023_community_bonding/</guid>
+      <description>Finally ,after 5 months of consistent work and sleepless night the d-day has approached ,continous doubts started poping my head and was really confused that , have given my best shot.</description>
+    </item>
+    
+  </channel>
+</rss>
