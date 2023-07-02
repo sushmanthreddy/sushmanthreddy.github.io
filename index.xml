@@ -6,7 +6,25 @@
     <description>Recent content on Sushmanth&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 16 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://sushmanthreddy.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://sushmanthreddy.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>GSOC WEEK 4 </title>
+      <link>https://sushmanthreddy.github.io/posts/gsoc_week_4/</link>
+      <pubDate>Wed, 28 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://sushmanthreddy.github.io/posts/gsoc_week_4/</guid>
+      <description>DevoNet I have started working on the devonet model as per my gsoc proposal ,As we are using cell tracking dataset and dataset we have the 3d images of with nucleus detection and nucleus segmentation process whole data is in the format of TIF format and images are grey scale , labels and detection.</description>
+    </item>
+    
+    <item>
+      <title>GSOC WEEK 3</title>
+      <link>https://sushmanthreddy.github.io/posts/gsoc_week_3/</link>
+      <pubDate>Thu, 22 Jun 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://sushmanthreddy.github.io/posts/gsoc_week_3/</guid>
+      <description>Here in this week completely we worked on image encoder part , where orginal images as sam model is trained on the images of color data , the data need to shifted to the original decoder accepted shape .</description>
+    </item>
+    
     <item>
       <title>GSOC WEEK 2</title>
       <link>https://sushmanthreddy.github.io/posts/gsoc_week_2/</link>
@@ -14,24 +32,6 @@
       
       <guid>https://sushmanthreddy.github.io/posts/gsoc_week_2/</guid>
       <description>Here in this week most of time went on making the data for the prompt encoder as it accepts the prompt embeding , I have to convert all masks into bounding boxes.</description>
-    </item>
-    
-    <item>
-      <title>GSOC WEEK 3</title>
-      <link>https://sushmanthreddy.github.io/posts/gsoc_week_3/</link>
-      <pubDate>Fri, 16 Jun 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://sushmanthreddy.github.io/posts/gsoc_week_3/</guid>
-      <description>Here in this week completely we worked on image encoder part , where orginal images as sam model is trained on the images of color data , the data need to shifted to the original decoder accepted shape .</description>
-    </item>
-    
-    <item>
-      <title>GSOC WEEK 4 </title>
-      <link>https://sushmanthreddy.github.io/posts/gsoc_week_4/</link>
-      <pubDate>Fri, 16 Jun 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://sushmanthreddy.github.io/posts/gsoc_week_4/</guid>
-      <description>DevoNet I have started working on the devonet model as per my gsoc proposal ,As we are using cell tracking dataset and dataset we have the 3d images of with nucleus detection and nucleus segmentation process whole data is in the format of TIF format and images are grey scale , labels and detection.</description>
     </item>
     
     <item>
