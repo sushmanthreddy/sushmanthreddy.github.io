@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no"/>
+
+    <title>GSOC WEEK 4  | Sushmanth&#39;s blog</title>
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#FF3DB4">
+    <meta name="theme-color" content="#ffffff">
+
+    
+    
+    
+    <link rel="stylesheet" href="https://sushmanthreddy.github.io/css/main.min.e34415025514319010e741089e6920454053855755ba465f66943ad102d2cb08.css"/>
+
+    
+    
+    
+
+    
+    
+ 
+    </head>
+
+    <body>
+        
+<nav>
+  <header>
+    <div class="site-title">
+        <a href="/">Sushmanth&#39;s blog</a>
+    </div>  
+</header>
+
+  <div class="nav-menu">
+  
+    <a class="color-link nav-link" href="/about/">About Me</a>
+  
+    <a class="color-link nav-link" href="/tags/">Tags</a>
+  
+    <a class="color-link nav-link" href="/archives/">archive</a>
+  
+    <a class="color-link nav-link" href="https://sushmanthreddy.github.io/CV/CV.pdf">CV</a>
+  
+  <a class="color-link nav-link" href="https://sushmanthreddy.github.io/index.xml" target="_blank" rel="noopener" type="application/rss+xml">RSS</a>
+</div>
+<footer class="footer">
+	<div class="social-icons">
+        
+    <a class="social-icon" href="mailto:sushmanthreddymereddy@gmail.com" target="_blank" rel="noopener" title="Email">
+        <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+            <path d="M25.2794292,5.59128519 L14,16.8707144 L2.72057081,5.59128519 C3.06733103,5.30237414 3.51336915,5.12857603 4,5.12857603 L24,5.12857603 C24.4866308,5.12857603 24.932669,5.30237414 25.2794292,5.59128519 Z M25.9956978,6.99633695 C25.998551,7.04004843 26,7.08414302 26,7.12857603 L26,20.871424 C26,21.0798433 25.9681197,21.2808166 25.9089697,21.4697335 L18.7156355,14.2763993 L25.9956978,6.99633695 Z M24.9498374,22.6319215 C24.6672737,22.7846939 24.3437653,22.871424 24,22.871424 L4,22.871424 C3.5268522,22.871424 3.09207889,22.7071233 2.74962118,22.432463 L10.0950247,15.0870594 L13.9848068,18.9768415 L14.1878486,18.7737996 L14.2030419,18.7889929 L17.6549753,15.3370594 L24.9498374,22.6319215 Z M2.00810114,21.0526627 C2.00273908,20.9929669 2,20.9325153 2,20.871424 L2,7.12857603 C2,7.08414302 2.00144896,7.04004843 2.00430222,6.99633695 L9.03436454,14.0263993 L2.00810114,21.0526627 Z"></path>
+        </svg>
+    </a>
+    
+
+    
+
+    
+    <a class="social-icon" href="https://twitter.com/Sushmanth__" target="_blank" rel="noopener" title="Twitter">
+        <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+            <path d="M8.991284,24.971612 C19.180436,24.971612 24.752372,16.530224 24.752372,9.210524 C24.752372,8.970656 24.747512,8.731868 24.736496,8.494376 C25.818008,7.712564 26.758256,6.737 27.5,5.62622 C26.507372,6.067076 25.439252,6.364292 24.318752,6.498212 C25.462472,5.812628 26.340512,4.727444 26.754584,3.434036 C25.684088,4.068536 24.499004,4.53002 23.23724,4.778528 C22.226468,3.701876 20.786828,3.028388 19.193828,3.028388 C16.134404,3.028388 13.653536,5.509256 13.653536,8.567492 C13.653536,9.0023 13.702244,9.424904 13.797176,9.830552 C9.19346,9.599108 5.11106,7.39472 2.3792,4.04294 C1.903028,4.861364 1.629032,5.812628 1.629032,6.827072 C1.629032,8.74904 2.606972,10.445612 4.094024,11.438132 C3.185528,11.41016 2.331788,11.160464 1.585184,10.745096 C1.583888,10.768208 1.583888,10.791428 1.583888,10.815728 C1.583888,13.49888 3.493652,15.738584 6.028088,16.246508 C5.562932,16.373084 5.07326,16.44134 4.56782,16.44134 C4.210988,16.44134 3.863876,16.406024 3.526484,16.34144 C4.231724,18.542264 6.276596,20.143796 8.701412,20.18894 C6.805148,21.674696 4.416836,22.56008 1.821488,22.56008 C1.374476,22.56008 0.93362,22.534592 0.5,22.4834 C2.951708,24.054476 5.862524,24.971612 8.991284,24.971612"></path>
+        </svg>
+    </a>
+    
+
+    
+    <a class="social-icon" href="https://www.instagram.com/sushmanth.__.reddy/" target="_blank" rel="noopener" title="Instagram">
+        <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+             <path d="M14.0000238,2.00378571 C17.2579762,2.00378571 17.6665,2.01759524 18.9460238,2.07597619 C20.222881,2.13421429 21.0949286,2.33702381 21.8579762,2.63359524 C22.6468333,2.94011905 23.3158333,3.35030952 23.9827857,4.01721429 C24.6496905,4.68416667 25.059881,5.35316667 25.3664524,6.14202381 C25.6629762,6.90507143 25.8657857,7.77711905 25.9240238,9.05397619 C25.9824048,10.3335 25.9962143,10.7420238 25.9962143,14.0000238 C25.9962143,17.2579762 25.9824048,17.6665 25.9240238,18.9460238 C25.8657857,20.222881 25.6629762,21.0949286 25.3664524,21.8579762 C25.059881,22.6468333 24.6496905,23.3158333 23.9827857,23.9827857 C23.3158333,24.6496905 22.6468333,25.059881 21.8579762,25.3664524 C21.0949286,25.6629762 20.222881,25.8657857 18.9460238,25.9240238 C17.6665,25.9824048 17.2579762,25.9962143 14.0000238,25.9962143 C10.7420238,25.9962143 10.3335,25.9824048 9.05397619,25.9240238 C7.77711905,25.8657857 6.90507143,25.6629762 6.14202381,25.3664524 C5.35316667,25.059881 4.68416667,24.6496905 4.01721429,23.9827857 C3.35030952,23.3158333 2.94011905,22.6468333 2.63359524,21.8579762 C2.33702381,21.0949286 2.13421429,20.222881 2.07597619,18.9460238 C2.01759524,17.6665 2.00378571,17.2579762 2.00378571,14.0000238 C2.00378571,10.7420238 2.01759524,10.3335 2.07597619,9.05397619 C2.13421429,7.77711905 2.33702381,6.90507143 2.63359524,6.14202381 C2.94011905,5.35316667 3.35030952,4.68416667 4.01721429,4.01721429 C4.68416667,3.35030952 5.35316667,2.94011905 6.14202381,2.63359524 C6.90507143,2.33702381 7.77711905,2.13421429 9.05397619,2.07597619 C10.3335,2.01759524 10.7420238,2.00378571 14.0000238,2.00378571 Z M14.0000238,4.1652619 C10.796881,4.1652619 10.4174524,4.1775 9.1525,4.23521429 C7.98288095,4.28854762 7.34769048,4.48397619 6.92497619,4.6482619 C6.36502381,4.86588095 5.96540476,5.12583333 5.54564286,5.54564286 C5.12583333,5.96540476 4.86588095,6.36502381 4.6482619,6.92497619 C4.48397619,7.34769048 4.28854762,7.98288095 4.23521429,9.1525 C4.1775,10.4174524 4.1652619,10.796881 4.1652619,14.0000238 C4.1652619,17.203119 4.1775,17.5825476 4.23521429,18.8475 C4.28854762,20.017119 4.48397619,20.6523095 4.6482619,21.0750238 C4.86588095,21.6349762 5.12588095,22.0345952 5.54564286,22.4543571 C5.96540476,22.8741667 6.36502381,23.134119 6.92497619,23.3517381 C7.34769048,23.5160238 7.98288095,23.7114524 9.1525,23.7647857 C10.4173095,23.8225 10.7966429,23.8347381 14.0000238,23.8347381 C17.2033571,23.8347381 17.5827381,23.8225 18.8475,23.7647857 C20.017119,23.7114524 20.6523095,23.5160238 21.0750238,23.3517381 C21.6349762,23.134119 22.0345952,22.8741667 22.4543571,22.4543571 C22.8741667,22.0345952 23.134119,21.6349762 23.3517381,21.0750238 C23.5160238,20.6523095 23.7114524,20.017119 23.7647857,18.8475 C23.8225,17.5825476 23.8347381,17.203119 23.8347381,14.0000238 C23.8347381,10.796881 23.8225,10.4174524 23.7647857,9.1525 C23.7114524,7.98288095 23.5160238,7.34769048 23.3517381,6.92497619 C23.134119,6.36502381 22.8741667,5.96540476 22.4543571,5.54564286 C22.0345952,5.12583333 21.6349762,4.86588095 21.0750238,4.6482619 C20.6523095,4.48397619 20.017119,4.28854762 18.8475,4.23521429 C17.5825476,4.1775 17.203119,4.1652619 14.0000238,4.1652619 Z M14.0000238,17.9987381 C16.2084524,17.9987381 17.9987381,16.2084524 17.9987381,14.0000238 C17.9987381,11.7915476 16.2084524,10.0012619 14.0000238,10.0012619 C11.7915476,10.0012619 10.0012619,11.7915476 10.0012619,14.0000238 C10.0012619,16.2084524 11.7915476,17.9987381 14.0000238,17.9987381 Z M14.0000238,7.83978571 C17.4022143,7.83978571 20.1602143,10.5977857 20.1602143,14.0000238 C20.1602143,17.4022143 17.4022143,20.1602143 14.0000238,20.1602143 C10.5977857,20.1602143 7.83978571,17.4022143 7.83978571,14.0000238 C7.83978571,10.5977857 10.5977857,7.83978571 14.0000238,7.83978571 Z M21.8431667,7.59640476 C21.8431667,8.39145238 21.1986429,9.03592857 20.4035952,9.03592857 C19.6085952,9.03592857 18.9640714,8.39145238 18.9640714,7.59640476 C18.9640714,6.80135714 19.6085952,6.15683333 20.4035952,6.15683333 C21.1986429,6.15683333 21.8431667,6.80135714 21.8431667,7.59640476 Z"></path>
+        </svg>
+    </a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <a class="social-icon" href="https://www.linkedin.com/in/sushmanth-reddy-mereddy-b942811b1/" target="_blank" rel="noopener" title="LinkedIn">
+        <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+            <path d="M2,3.654102 C2,2.69908141 2.79442509,1.92397846 3.77383592,1.92397846 L24.2261641,1.92397846 C25.2058917,1.92397846 26,2.69908141 26,3.654102 L26,24.3462148 C26,25.3015521 25.2058917,26.0760215 24.2261641,26.0760215 L3.77383592,26.0760215 C2.79442509,26.0760215 2,25.3015521 2,24.3465315 L2,3.65378524 L2,3.654102 Z M9.27526132,22.1415901 L9.27526132,11.2356668 L5.65030092,11.2356668 L5.65030092,22.1415901 L9.27557808,22.1415901 L9.27526132,22.1415901 Z M7.46341463,9.74691162 C8.72727273,9.74691162 9.51409566,8.90940767 9.51409566,7.86284447 C9.49033893,6.79252455 8.72727273,5.97846056 7.48748812,5.97846056 C6.24675325,5.97846056 5.43649034,6.79252455 5.43649034,7.86284447 C5.43649034,8.90940767 6.22299652,9.74691162 7.4396579,9.74691162 L7.46309788,9.74691162 L7.46341463,9.74691162 Z M11.2815965,22.1415901 L14.9062401,22.1415901 L14.9062401,16.0519481 C14.9062401,15.7263225 14.9299968,15.4000634 15.0256573,15.1675641 C15.2876148,14.5159962 15.8840672,13.8416218 16.8856509,13.8416218 C18.1970225,13.8416218 18.7218879,14.8416218 18.7218879,16.3078872 L18.7218879,22.1415901 L22.3465315,22.1415901 L22.3465315,15.8885017 C22.3465315,12.5388027 20.5584416,10.9800443 18.1735825,10.9800443 C16.2182452,10.9800443 15.3595185,12.072854 14.8824834,12.8172315 L14.9065569,12.8172315 L14.9065569,11.2359835 L11.2819132,11.2359835 C11.3291099,12.2591067 11.2815965,22.1419069 11.2815965,22.1419069 L11.2815965,22.1415901 Z"></path>
+        </svg>
+    </a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    <a class="social-icon" href="https://github.com/sushmanthreddy" target="_blank" rel="noopener" title="GitHub">
+        <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+            <path d="M13.9988029,1.32087331 C6.82105037,1.32087331 1,7.14112562 1,14.3212723 C1,20.0649109 4.72454649,24.9370678 9.89038951,26.6560892 C10.5408085,26.7757983 10.7778323,26.374374 10.7778323,26.0296121 C10.7778323,25.7215609 10.7666595,24.9035493 10.760275,23.8189856 C7.14426471,24.6042767 6.38131925,22.0760223 6.38131925,22.0760223 C5.78995672,20.5740732 4.93762853,20.1742451 4.93762853,20.1742451 C3.75729765,19.3682044 5.02701126,19.3841656 5.02701126,19.3841656 C6.33183953,19.4759425 7.01817121,20.7241085 7.01817121,20.7241085 C8.17775254,22.7104801 10.0611744,22.1366749 10.8017741,21.8038838 C10.919887,20.9643246 11.2558703,20.3913175 11.6269683,20.066507 C8.74038491,19.7385043 5.70536235,18.6228163 5.70536235,13.6413251 C5.70536235,12.2223743 6.21213051,11.0611968 7.04370914,10.1530044 C6.90963504,9.82420367 6.46351945,8.50181809 7.17139875,6.71256734 C7.17139875,6.71256734 8.26234691,6.36301702 10.7459099,8.04532771 C11.78259,7.75642995 12.8950858,7.61277914 14.000399,7.60719272 C15.1049142,7.61277914 16.2166119,7.75642995 17.2548881,8.04532771 C19.736855,6.36301702 20.8262071,6.71256734 20.8262071,6.71256734 C21.5356825,8.50181809 21.0895669,9.82420367 20.9562909,10.1530044 C21.7894656,11.0611968 22.2922435,12.2223743 22.2922435,13.6413251 C22.2922435,18.6355852 19.2524325,19.734514 16.3570705,20.0561322 C16.8231376,20.4575564 17.2389269,21.2508282 17.2389269,22.4638795 C17.2389269,24.2012564 17.2229657,25.603448 17.2229657,26.0296121 C17.2229657,26.3775663 17.4575954,26.7821827 18.116793,26.6552912 C23.2786458,24.9322794 27,20.0633148 27,14.3212723 C27,7.14112562 21.1789496,1.32087331 13.9988029,1.32087331"></path>
+        </svg>
+    </a>
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</div>
+
+
+
+
+    <p><a href="https://github.com/kimcc/hugo-theme-noteworthy" target="_blank" rel="noopener">Noteworthy theme</a></p>
+    <p><a href="https://gohugo.io" target="_blank" rel="noopener">Built with Hugo</a></p>
+
+	<script src="https://sushmanthreddy.github.io/js/main.min.a7205ef73b078c8daed6fe1b0826e8ba229ffabbb69d299d9446cf41f2c7d8aa.js" integrity="sha256-pyBe9zsHjI2u1v4bCCbouiKf+ru2nSmdlEbPQfLH2Ko=" crossorigin="anonymous"></script>
+</footer>
+
+</nav>
+
+        <div id="content" class="content-container">
+        
+
+<h1 class="post-title">GSOC WEEK 4 </h1>
+    
+    <time>June 16, 2023</time>
+    
+    <div>
+        <p>
+        <h1 id="devonet">DevoNet</h1>
+<p>I have started working on the devonet model as per my gsoc proposal ,As we are using cell tracking dataset and dataset we have the 3d images of with nucleus detection and nucleus segmentation process whole data is in the format of TIF format and images are grey scale , labels and detection.</p>
+<h2 id="datasetpy">Dataset.py</h2>
+<p>Here is the code for the dataset.py file it reads the 3d images</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># -*- coding: utf-8 -*-</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>import os
+</span></span><span style="display:flex;"><span>import sys
+</span></span><span style="display:flex;"><span>import random
+</span></span><span style="display:flex;"><span>import numpy as np
+</span></span><span style="display:flex;"><span>from skimage import io
+</span></span><span style="display:flex;"><span>from skimage import io
+</span></span><span style="display:flex;"><span>from skimage import transform as tr
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>import torch
+</span></span><span style="display:flex;"><span>from torch.utils.data import Dataset
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def read_img<span style="color:#f92672">(</span>path, arr_type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;npz&#34;</span><span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;read image array from path
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        path (str)          : path to directory which images are stored.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        arr_type (str)      : type of reading file {&#39;npz&#39;,&#39;jpg&#39;,&#39;png&#39;,&#39;tif&#39;}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Returns:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        image (np.ndarray)  : image array
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> arr_type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;npz&#34;</span>:
+</span></span><span style="display:flex;"><span>        image <span style="color:#f92672">=</span> np.load<span style="color:#f92672">(</span>path<span style="color:#f92672">)[</span><span style="color:#e6db74">&#34;arr_0&#34;</span><span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> arr_type in <span style="color:#f92672">(</span><span style="color:#e6db74">&#34;png&#34;</span>, <span style="color:#e6db74">&#34;jpg&#34;</span><span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>        image <span style="color:#f92672">=</span> io.imread<span style="color:#f92672">(</span>path, mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;L&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">elif</span> arr_type <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;tif&#34;</span>:
+</span></span><span style="display:flex;"><span>        image <span style="color:#f92672">=</span> io.imread<span style="color:#f92672">(</span>path<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>        raise ValueError<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;invalid --input_type : {}&#34;</span>.format<span style="color:#f92672">(</span>arr_type<span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> image.astype<span style="color:#f92672">(</span>np.int32<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def crop_pair_3d<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>    image1,
+</span></span><span style="display:flex;"><span>    image2,
+</span></span><span style="display:flex;"><span>    crop_size<span style="color:#f92672">=(</span>128, 128, 128<span style="color:#f92672">)</span>,
+</span></span><span style="display:flex;"><span>    nonzero_image1_thr<span style="color:#f92672">=</span>0.0001,
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># nonzero_image1_thr=0.0,</span>
+</span></span><span style="display:flex;"><span>    nonzero_image2_thr<span style="color:#f92672">=</span>0.0001,
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># nonzero_image2_thr=0.0,</span>
+</span></span><span style="display:flex;"><span>    nb_crop<span style="color:#f92672">=</span>1,
+</span></span><span style="display:flex;"><span>    augmentation<span style="color:#f92672">=</span>True,
+</span></span><span style="display:flex;"><span><span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;3d {image, label} patches are cropped from array.
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Args:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        image1 (np.ndarray)                  : Input 3d image array from 1st domain
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        image2 (np.ndarray)                  : Input 3d label array from 2nd domain
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        crop_size ((int, int, int))         : Crop image patch from array randomly
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        nonzero_image1_thr (float)           : Crop if nonzero pixel ratio is higher than threshold
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        nonzero_image2_thr (float)           : Crop if nonzero pixel ratio is higher than threshold
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        nb_crop (int)                       : Number of cropping patches at once
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    Returns:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        if nb_crop == 1:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            cropped_image1 (np.ndarray)  : cropped 3d image array
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            cropped_image2 (np.ndarray)  : cropped 3d label array
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">        if nb_crop &gt; 1:
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            cropped_images1 (list)       : cropped 3d image arrays
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">            cropped_images2 (list)       : cropped 3d label arrays
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    z_len, y_len, x_len <span style="color:#f92672">=</span> image1.shape
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># _, x_len, y_len, z_len = image1.shape</span>
+</span></span><span style="display:flex;"><span>    assert x_len &gt;<span style="color:#f92672">=</span> crop_size<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    assert y_len &gt;<span style="color:#f92672">=</span> crop_size<span style="color:#f92672">[</span>1<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    assert z_len &gt;<span style="color:#f92672">=</span> crop_size<span style="color:#f92672">[</span>2<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>    cropped_images1 <span style="color:#f92672">=</span> <span style="color:#f92672">[]</span>
+</span></span><span style="display:flex;"><span>    cropped_images2 <span style="color:#f92672">=</span> <span style="color:#f92672">[]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">while</span> 1:
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># get cropping position (image)</span>
+</span></span><span style="display:flex;"><span>        top <span style="color:#f92672">=</span> random.randint<span style="color:#f92672">(</span>0, x_len - crop_size<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> - 1<span style="color:#f92672">)</span> <span style="color:#66d9ef">if</span> x_len &gt; crop_size<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        left <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>            random.randint<span style="color:#f92672">(</span>0, y_len - crop_size<span style="color:#f92672">[</span>1<span style="color:#f92672">]</span> - 1<span style="color:#f92672">)</span> <span style="color:#66d9ef">if</span> y_len &gt; crop_size<span style="color:#f92672">[</span>1<span style="color:#f92672">]</span> <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        front <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>            random.randint<span style="color:#f92672">(</span>0, z_len - crop_size<span style="color:#f92672">[</span>2<span style="color:#f92672">]</span> - 1<span style="color:#f92672">)</span> <span style="color:#66d9ef">if</span> z_len &gt; crop_size<span style="color:#f92672">[</span>2<span style="color:#f92672">]</span> <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        bottom <span style="color:#f92672">=</span> top + crop_size<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>        right <span style="color:#f92672">=</span> left + crop_size<span style="color:#f92672">[</span>1<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>        rear <span style="color:#f92672">=</span> front + crop_size<span style="color:#f92672">[</span>2<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># crop image</span>
+</span></span><span style="display:flex;"><span>        cropped_image1 <span style="color:#f92672">=</span> image1<span style="color:#f92672">[</span>front:rear, left:right, top:bottom<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>        cropped_image2 <span style="color:#f92672">=</span> image2<span style="color:#f92672">[</span>front:rear, left:right, top:bottom<span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># get nonzero ratio</span>
+</span></span><span style="display:flex;"><span>        nonzero_image1_ratio <span style="color:#f92672">=</span> np.nonzero<span style="color:#f92672">(</span>cropped_image1<span style="color:#f92672">)[</span>0<span style="color:#f92672">]</span>.size / float<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>            cropped_image1.size
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        nonzero_image2_ratio <span style="color:#f92672">=</span> np.nonzero<span style="color:#f92672">(</span>cropped_image2<span style="color:#f92672">)[</span>0<span style="color:#f92672">]</span>.size / float<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>            cropped_image2.size
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># rotate {image_A, image_B}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> augmentation:
+</span></span><span style="display:flex;"><span>            aug_flag <span style="color:#f92672">=</span> random.randint<span style="color:#f92672">(</span>0, 3<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">for</span> z in range<span style="color:#f92672">(</span>cropped_image1.shape<span style="color:#f92672">[</span>0<span style="color:#f92672">])</span>:
+</span></span><span style="display:flex;"><span>                cropped_image1<span style="color:#f92672">[</span>z<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> np.rot90<span style="color:#f92672">(</span>cropped_image1<span style="color:#f92672">[</span>z<span style="color:#f92672">]</span>, k<span style="color:#f92672">=</span>aug_flag<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                cropped_image2<span style="color:#f92672">[</span>z<span style="color:#f92672">]</span> <span style="color:#f92672">=</span> np.rot90<span style="color:#f92672">(</span>cropped_image2<span style="color:#f92672">[</span>z<span style="color:#f92672">]</span>, k<span style="color:#f92672">=</span>aug_flag<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># break loop</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> <span style="color:#f92672">(</span>nonzero_image1_ratio &gt;<span style="color:#f92672">=</span> nonzero_image1_thr<span style="color:#f92672">)</span> and <span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>            nonzero_image2_ratio &gt;<span style="color:#f92672">=</span> nonzero_image2_thr
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> nb_crop <span style="color:#f92672">==</span> 1:
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">return</span> cropped_image1, cropped_image2
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">elif</span> nb_crop &gt; 1:
+</span></span><span style="display:flex;"><span>                cropped_images1.append<span style="color:#f92672">(</span>cropped_image1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                cropped_images2.append<span style="color:#f92672">(</span>cropped_image2<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#66d9ef">if</span> len<span style="color:#f92672">(</span>cropped_images1<span style="color:#f92672">)</span> <span style="color:#f92672">==</span> nb_crop:
+</span></span><span style="display:flex;"><span>                    <span style="color:#66d9ef">return</span> np.array<span style="color:#f92672">(</span>cropped_images1<span style="color:#f92672">)</span>, np.array<span style="color:#f92672">(</span>cropped_images2<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>                raise ValueError<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;invalid value nb_crop :&#34;</span>, nb_crop<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>class PreprocessedDataset<span style="color:#f92672">(</span>Dataset<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>    def __init__<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>        self,
+</span></span><span style="display:flex;"><span>        root_path,
+</span></span><span style="display:flex;"><span>        split_list,
+</span></span><span style="display:flex;"><span>        train<span style="color:#f92672">=</span>True,
+</span></span><span style="display:flex;"><span>        model<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;NSN&#34;</span>,
+</span></span><span style="display:flex;"><span>        arr_type<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;npz&#34;</span>,
+</span></span><span style="display:flex;"><span>        normalization<span style="color:#f92672">=</span>False,
+</span></span><span style="display:flex;"><span>        augmentation<span style="color:#f92672">=</span>True,
+</span></span><span style="display:flex;"><span>        scaling<span style="color:#f92672">=</span>True,
+</span></span><span style="display:flex;"><span>        resolution<span style="color:#f92672">=</span>eval<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;(1.0, 1.0, 2.18)&#34;</span><span style="color:#f92672">)</span>,
+</span></span><span style="display:flex;"><span>        crop_size<span style="color:#f92672">=</span>eval<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;(96, 96, 96)&#34;</span><span style="color:#f92672">)</span>,
+</span></span><span style="display:flex;"><span>        ndim<span style="color:#f92672">=</span>3,
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>        self.root_path <span style="color:#f92672">=</span> root_path
+</span></span><span style="display:flex;"><span>        self.split_list <span style="color:#f92672">=</span> split_list
+</span></span><span style="display:flex;"><span>        self.model <span style="color:#f92672">=</span> model
+</span></span><span style="display:flex;"><span>        self.arr_type <span style="color:#f92672">=</span> arr_type
+</span></span><span style="display:flex;"><span>        self.normalization <span style="color:#f92672">=</span> normalization
+</span></span><span style="display:flex;"><span>        self.augmentation <span style="color:#f92672">=</span> augmentation
+</span></span><span style="display:flex;"><span>        self.scaling <span style="color:#f92672">=</span> scaling
+</span></span><span style="display:flex;"><span>        self.resolution <span style="color:#f92672">=</span> resolution
+</span></span><span style="display:flex;"><span>        self.crop_size <span style="color:#f92672">=</span> crop_size
+</span></span><span style="display:flex;"><span>        self.train <span style="color:#f92672">=</span> train
+</span></span><span style="display:flex;"><span>        self.ndim <span style="color:#f92672">=</span> ndim
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        with open<span style="color:#f92672">(</span>split_list, <span style="color:#e6db74">&#34;r&#34;</span><span style="color:#f92672">)</span> as f:
+</span></span><span style="display:flex;"><span>            self.img_path <span style="color:#f92672">=</span> f.read<span style="color:#f92672">()</span>.split<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    def __len__<span style="color:#f92672">(</span>self<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> len<span style="color:#f92672">(</span>self.img_path<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    def _get_image_3d<span style="color:#f92672">(</span>self, i<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>        image <span style="color:#f92672">=</span> read_img<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>            os.path.join<span style="color:#f92672">(</span>self.root_path, <span style="color:#e6db74">&#34;images_raw&#34;</span>, self.img_path<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span>, self.arr_type
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        ip_size <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>            int<span style="color:#f92672">(</span>image.shape<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> * self.resolution<span style="color:#f92672">[</span>2<span style="color:#f92672">])</span>,
+</span></span><span style="display:flex;"><span>            int<span style="color:#f92672">(</span>image.shape<span style="color:#f92672">[</span>1<span style="color:#f92672">]</span> * self.resolution<span style="color:#f92672">[</span>1<span style="color:#f92672">])</span>,
+</span></span><span style="display:flex;"><span>            int<span style="color:#f92672">(</span>image.shape<span style="color:#f92672">[</span>2<span style="color:#f92672">]</span> * self.resolution<span style="color:#f92672">[</span>0<span style="color:#f92672">])</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        image <span style="color:#f92672">=</span> tr.resize<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>            image.astype<span style="color:#f92672">(</span>np.float32<span style="color:#f92672">)</span>, ip_size, order<span style="color:#f92672">=</span>1, preserve_range<span style="color:#f92672">=</span>True
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        pad_size <span style="color:#f92672">=</span> np.max<span style="color:#f92672">(</span>np.array<span style="color:#f92672">(</span>self.crop_size<span style="color:#f92672">)</span> - np.array<span style="color:#f92672">(</span>ip_size<span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> pad_size &gt; 0:
+</span></span><span style="display:flex;"><span>            image <span style="color:#f92672">=</span> np.pad<span style="color:#f92672">(</span>image, pad_width<span style="color:#f92672">=</span>pad_size, mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;reflect&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> self.scaling:
+</span></span><span style="display:flex;"><span>            image <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>image - image.min<span style="color:#f92672">())</span> / <span style="color:#f92672">(</span>image.max<span style="color:#f92672">()</span> - image.min<span style="color:#f92672">())</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> image.astype<span style="color:#f92672">(</span>np.float32<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    def _get_label_3d<span style="color:#f92672">(</span>self, i<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> self.model <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;NSN&#34;</span> or self.model <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;3DUNet&#34;</span>:
+</span></span><span style="display:flex;"><span>            label <span style="color:#f92672">=</span> read_img<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>                os.path.join<span style="color:#f92672">(</span>self.root_path, <span style="color:#e6db74">&#34;images_nsn&#34;</span>, self.img_path<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span>,
+</span></span><span style="display:flex;"><span>                self.arr_type,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">elif</span> self.model <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;NDN&#34;</span>:
+</span></span><span style="display:flex;"><span>            label <span style="color:#f92672">=</span> read_img<span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>                os.path.join<span style="color:#f92672">(</span>self.root_path, <span style="color:#e6db74">&#34;images_ndn&#34;</span>, self.img_path<span style="color:#f92672">[</span>i<span style="color:#f92672">])</span>,
+</span></span><span style="display:flex;"><span>                self.arr_type,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            print<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Warning: select model&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            sys.exit<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>        ip_size <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>
+</span></span><span style="display:flex;"><span>            int<span style="color:#f92672">(</span>label.shape<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span> * self.resolution<span style="color:#f92672">[</span>2<span style="color:#f92672">])</span>,
+</span></span><span style="display:flex;"><span>            int<span style="color:#f92672">(</span>label.shape<span style="color:#f92672">[</span>1<span style="color:#f92672">]</span> * self.resolution<span style="color:#f92672">[</span>1<span style="color:#f92672">])</span>,
+</span></span><span style="display:flex;"><span>            int<span style="color:#f92672">(</span>label.shape<span style="color:#f92672">[</span>2<span style="color:#f92672">]</span> * self.resolution<span style="color:#f92672">[</span>0<span style="color:#f92672">])</span>,
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        label <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>tr.resize<span style="color:#f92672">(</span>label, ip_size, order<span style="color:#f92672">=</span>1, preserve_range<span style="color:#f92672">=</span>True<span style="color:#f92672">)</span> &gt; 0<span style="color:#f92672">)</span> * <span style="color:#ae81ff">1</span>
+</span></span><span style="display:flex;"><span>        pad_size <span style="color:#f92672">=</span> np.max<span style="color:#f92672">(</span>np.array<span style="color:#f92672">(</span>self.crop_size<span style="color:#f92672">)</span> - np.array<span style="color:#f92672">(</span>ip_size<span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> pad_size &gt; 0:
+</span></span><span style="display:flex;"><span>            label <span style="color:#f92672">=</span> np.pad<span style="color:#f92672">(</span>label, pad_width<span style="color:#f92672">=</span>pad_size, mode<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;reflect&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> label.astype<span style="color:#f92672">(</span>np.int32<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    def __getitem__<span style="color:#f92672">(</span>self, i<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> self.ndim <span style="color:#f92672">==</span> 3:
+</span></span><span style="display:flex;"><span>            image <span style="color:#f92672">=</span> self._get_image_3d<span style="color:#f92672">(</span>i<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            label <span style="color:#f92672">=</span> self._get_label_3d<span style="color:#f92672">(</span>i<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            print<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;Error: ndim must be 3 dimensions&#34;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> self.train:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> self.ndim <span style="color:#f92672">==</span> 3:
+</span></span><span style="display:flex;"><span>                x, t <span style="color:#f92672">=</span> crop_pair_3d<span style="color:#f92672">(</span>image, label, crop_size<span style="color:#f92672">=</span>self.crop_size<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> np.expand_dims<span style="color:#f92672">(</span>x.astype<span style="color:#f92672">(</span>np.float32<span style="color:#f92672">)</span>, axis<span style="color:#f92672">=</span>0<span style="color:#f92672">)</span>, t.astype<span style="color:#f92672">(</span>np.int32<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">return</span> image.astype<span style="color:#f92672">(</span>np.float32<span style="color:#f92672">)</span>, label.astype<span style="color:#f92672">(</span>np.int32<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>The provided code consists of utility functions and a dataset class for preprocessing and handling 3D images and labels. Let&rsquo;s go through the code and explain each part:</p>
+<ol>
+<li>
+<p>Importing packages:</p>
+<ul>
+<li>The code imports necessary packages such as os, sys, random, numpy, skimage.io, skimage.transform, and torch for various functionalities related to file operations, image processing, and dataset handling.</li>
+</ul>
+</li>
+<li>
+<p>read_img function:</p>
+<ul>
+<li>This function reads an image array from a given path.</li>
+<li>It takes the path to the image directory (path) and the type of the reading file (arr_type) as input.</li>
+<li>Depending on the arr_type, it loads the image array using the appropriate method (np.load for npz files, io.imread for jpg, png, and io.imread for tif files).</li>
+<li>The function returns the image array as a numpy array of type np.int32.</li>
+</ul>
+</li>
+<li>
+<p>crop_pair_3d function:</p>
+<ul>
+<li>This function crops 3D patches from an input image and label array.</li>
+<li>It takes several arguments including the input image array (image1), input label array (image2), crop size (crop_size), nonzero pixel thresholds for the image and label (nonzero_image1_thr and nonzero_image2_thr), the number of cropping patches (nb_crop), and a flag for augmentation (augmentation).</li>
+<li>The function crops random patches from the image and label arrays based on the specified crop size. If the arrays are larger than the crop size, random positions are chosen for cropping. If the arrays are smaller than the crop size, no cropping is performed.</li>
+<li>The function calculates the nonzero pixel ratios for the cropped image and label arrays.</li>
+<li>If augmentation is enabled, the function randomly rotates the cropped image and label arrays.</li>
+<li>The function returns the cropped image and label arrays, either as individual arrays if nb_crop is 1 or as lists of arrays if nb_crop is greater than 1.</li>
+</ul>
+</li>
+<li>
+<p>PreprocessedDataset class:</p>
+<ul>
+<li>This class is a custom dataset class for handling preprocessed 3D images and labels.</li>
+<li>It inherits from the torch.utils.data.Dataset class and overrides its <strong>len</strong> and <strong>getitem</strong> methods.</li>
+<li>The class takes several arguments including the root path of the dataset (root_path), a split list file (split_list), a flag indicating if it&rsquo;s a training dataset (train), the model type (model), the type of input files (arr_type), flags for normalization and augmentation, scaling and resolution factors, crop size, and the number of dimensions (ndim).</li>
+<li>In the <strong>init</strong> method, the split list file is read and the image paths are stored in the img_path attribute.</li>
+<li>The <strong>len</strong> method returns the total number of images in the dataset.</li>
+<li>The _get_image_3d method reads and preprocesses the input image based on the specified resolution, scaling, and pad size.</li>
+<li>The _get_label_3d method reads and preprocesses the input label based on the specified resolution and pad size. The processing involves resizing the label, converting it to binary form, and applying padding.</li>
+<li>The <strong>getitem</strong> method is called when an item from the dataset is accessed. It retrieves the image and label corresponding to the given index and performs cropping if it&rsquo;s a training dataset.</li>
+<li>The method returns the image and label as numpy arrays.</li>
+</ul>
+</li>
+</ol>
+<p>Overall, this code provides utility functions to read and preprocess 3D images and labels</p>
+<h2 id="loss-function">Loss function</h2>
+<p>As per the suggestions have heard the Diceloss will be great for the segmentation and have wrote the basic diceloss function for the model.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>import numpy as np
+</span></span><span style="display:flex;"><span>import torch
+</span></span><span style="display:flex;"><span>import torch.nn as nn
+</span></span><span style="display:flex;"><span>import torch.nn.functional as F
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>class DiceLoss<span style="color:#f92672">(</span>nn.Module<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>    def __init__<span style="color:#f92672">(</span>self, weight<span style="color:#f92672">=</span>None, size_average<span style="color:#f92672">=</span>True<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>        super<span style="color:#f92672">(</span>DiceLoss, self<span style="color:#f92672">)</span>.__init__<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    def forward<span style="color:#f92672">(</span>self, inputs, targets, smooth<span style="color:#f92672">=</span>1<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#comment out if your model contains a sigmoid or equivalent activation layer</span>
+</span></span><span style="display:flex;"><span>        inputs <span style="color:#f92672">=</span> F.sigmoid<span style="color:#f92672">(</span>inputs<span style="color:#f92672">)</span>       
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">#flatten label and prediction tensors</span>
+</span></span><span style="display:flex;"><span>        inputs <span style="color:#f92672">=</span> inputs.view<span style="color:#f92672">(</span>-1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        targets <span style="color:#f92672">=</span> targets.view<span style="color:#f92672">(</span>-1<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        intersection <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>inputs * targets<span style="color:#f92672">)</span>.sum<span style="color:#f92672">()</span>                            
+</span></span><span style="display:flex;"><span>        dice <span style="color:#f92672">=</span> <span style="color:#f92672">(</span>2.*intersection + smooth<span style="color:#f92672">)</span>/<span style="color:#f92672">(</span>inputs.sum<span style="color:#f92672">()</span> + targets.sum<span style="color:#f92672">()</span> + smooth<span style="color:#f92672">)</span>  
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span> - dice
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def dice_loss<span style="color:#f92672">(</span>x, t, eps<span style="color:#f92672">=</span>0.0<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> DiceLoss<span style="color:#f92672">()(</span>x, t, smooth<span style="color:#f92672">=</span>eps<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def softmax_dice_loss<span style="color:#f92672">(</span>x, t, eps<span style="color:#f92672">=</span>1e-7<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> DiceLoss<span style="color:#f92672">()(</span>F.softmax<span style="color:#f92672">(</span>x, axis<span style="color:#f92672">=</span>1<span style="color:#f92672">)</span>, t, smooth<span style="color:#f92672">=</span>eps<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>The provided code contains a Dice Loss implementation and two utility functions for calculating the Dice Loss and Softmax Dice Loss for segmentation tasks. Let&rsquo;s go through the code and explain each part:</p>
+<ol>
+<li>
+<p>Importing packages:</p>
+<ul>
+<li>The code imports necessary packages such as numpy and torch for numerical computations and deep learning operations.</li>
+</ul>
+</li>
+<li>
+<p>DiceLoss class:</p>
+<ul>
+<li>This class is a custom implementation of the Dice Loss for segmentation tasks.</li>
+<li>It inherits from the torch.nn.Module class and overrides its forward method.</li>
+<li>The class takes two optional arguments: weight and size_average. However, these arguments are not used in the implementation.</li>
+<li>In the forward method, the inputs and targets are expected as arguments.</li>
+<li>If the model contains a sigmoid or equivalent activation layer, the inputs are passed through the F.sigmoid function to ensure the values are between 0 and 1.</li>
+<li>The inputs and targets tensors are then flattened using the view method.</li>
+<li>The intersection between the flattened inputs and targets is calculated by element-wise multiplication and summation.</li>
+<li>The Dice coefficient is computed using the intersection, inputs&rsquo; sum, and targets&rsquo; sum, with a smoothing factor added to avoid division by zero.</li>
+<li>Finally, the Dice Loss is obtained by subtracting the Dice coefficient from 1 and returned.</li>
+</ul>
+</li>
+<li>
+<p>dice_loss function:</p>
+<ul>
+<li>This utility function calculates the Dice Loss given the inputs and targets.</li>
+<li>It takes the inputs (x), targets (t), and an optional smoothing factor (eps) as arguments.</li>
+<li>The function creates an instance of the DiceLoss class and calls it with the inputs, targets, and the smoothing factor.</li>
+<li>The calculated Dice Loss is returned.</li>
+</ul>
+</li>
+<li>
+<p>softmax_dice_loss function:</p>
+<ul>
+<li>This utility function calculates the Softmax Dice Loss given the inputs and targets.</li>
+<li>It takes the inputs (x), targets (t), and an optional smoothing factor (eps) as arguments.</li>
+<li>The function applies the softmax function to the inputs along the second axis (channel dimension) using F.softmax function from PyTorch.</li>
+<li>Then, it creates an instance of the DiceLoss class and calls it with the softmaxed inputs, targets, and the smoothing factor.</li>
+<li>The calculated Softmax Dice Loss is returned.</li>
+</ul>
+</li>
+</ol>
+<p>The Dice Loss is a popular loss function for evaluating the similarity between predicted segmentation masks and ground truth labels. It measures the overlap between the predicted and target masks using the Dice coefficient. The Dice Loss is defined as 1 minus the Dice coefficient, where a higher value indicates better segmentation performance.</p>
+<p>The utility functions provided in the code allow you to easily calculate the Dice Loss and Softmax Dice Loss for segmentation tasks using PyTorch tensors.</p>
+
+        </p>
+    </div>
+    
+
+    
+
+    <div class="page-footer">
+        
+        <hr class="footer-divider">
+        
+            <a class="tag" href="/tags/devolearn">#DevoLearn</a>
+        
+            <a class="tag" href="/tags/gsoc">#GSOC</a>
+        
+            <a class="tag" href="/tags/openworm">#OpenWorm</a>
+        
+            <a class="tag" href="/tags/incf">#INCF</a>
+        
+      
+    </div>
+
+
+        
+
+<link rel="stylesheet" type="text/css" href="/css/katex.min.css" crossorigin="anonymous">
+<script type="text/javascript" src="/js/katex.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/auto-render.min.js"onload="renderMathInElement(document.body);" crossorigin="anonymous"></script>
+
+        </div>
+        <footer class="footer-mobile">
+	<div class="social-icons">
+        
+    <a class="social-icon" href="mailto:sushmanthreddymereddy@gmail.com" target="_blank" rel="noopener" title="Email">
+        <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+            <path d="M25.2794292,5.59128519 L14,16.8707144 L2.72057081,5.59128519 C3.06733103,5.30237414 3.51336915,5.12857603 4,5.12857603 L24,5.12857603 C24.4866308,5.12857603 24.932669,5.30237414 25.2794292,5.59128519 Z M25.9956978,6.99633695 C25.998551,7.04004843 26,7.08414302 26,7.12857603 L26,20.871424 C26,21.0798433 25.9681197,21.2808166 25.9089697,21.4697335 L18.7156355,14.2763993 L25.9956978,6.99633695 Z M24.9498374,22.6319215 C24.6672737,22.7846939 24.3437653,22.871424 24,22.871424 L4,22.871424 C3.5268522,22.871424 3.09207889,22.7071233 2.74962118,22.432463 L10.0950247,15.0870594 L13.9848068,18.9768415 L14.1878486,18.7737996 L14.2030419,18.7889929 L17.6549753,15.3370594 L24.9498374,22.6319215 Z M2.00810114,21.0526627 C2.00273908,20.9929669 2,20.9325153 2,20.871424 L2,7.12857603 C2,7.08414302 2.00144896,7.04004843 2.00430222,6.99633695 L9.03436454,14.0263993 L2.00810114,21.0526627 Z"></path>
+        </svg>
+    </a>
+    
+
+    
+
+    
+    <a class="social-icon" href="https://twitter.com/Sushmanth__" target="_blank" rel="noopener" title="Twitter">
+        <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+            <path d="M8.991284,24.971612 C19.180436,24.971612 24.752372,16.530224 24.752372,9.210524 C24.752372,8.970656 24.747512,8.731868 24.736496,8.494376 C25.818008,7.712564 26.758256,6.737 27.5,5.62622 C26.507372,6.067076 25.439252,6.364292 24.318752,6.498212 C25.462472,5.812628 26.340512,4.727444 26.754584,3.434036 C25.684088,4.068536 24.499004,4.53002 23.23724,4.778528 C22.226468,3.701876 20.786828,3.028388 19.193828,3.028388 C16.134404,3.028388 13.653536,5.509256 13.653536,8.567492 C13.653536,9.0023 13.702244,9.424904 13.797176,9.830552 C9.19346,9.599108 5.11106,7.39472 2.3792,4.04294 C1.903028,4.861364 1.629032,5.812628 1.629032,6.827072 C1.629032,8.74904 2.606972,10.445612 4.094024,11.438132 C3.185528,11.41016 2.331788,11.160464 1.585184,10.745096 C1.583888,10.768208 1.583888,10.791428 1.583888,10.815728 C1.583888,13.49888 3.493652,15.738584 6.028088,16.246508 C5.562932,16.373084 5.07326,16.44134 4.56782,16.44134 C4.210988,16.44134 3.863876,16.406024 3.526484,16.34144 C4.231724,18.542264 6.276596,20.143796 8.701412,20.18894 C6.805148,21.674696 4.416836,22.56008 1.821488,22.56008 C1.374476,22.56008 0.93362,22.534592 0.5,22.4834 C2.951708,24.054476 5.862524,24.971612 8.991284,24.971612"></path>
+        </svg>
+    </a>
+    
+
+    
+    <a class="social-icon" href="https://www.instagram.com/sushmanth.__.reddy/" target="_blank" rel="noopener" title="Instagram">
+        <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+             <path d="M14.0000238,2.00378571 C17.2579762,2.00378571 17.6665,2.01759524 18.9460238,2.07597619 C20.222881,2.13421429 21.0949286,2.33702381 21.8579762,2.63359524 C22.6468333,2.94011905 23.3158333,3.35030952 23.9827857,4.01721429 C24.6496905,4.68416667 25.059881,5.35316667 25.3664524,6.14202381 C25.6629762,6.90507143 25.8657857,7.77711905 25.9240238,9.05397619 C25.9824048,10.3335 25.9962143,10.7420238 25.9962143,14.0000238 C25.9962143,17.2579762 25.9824048,17.6665 25.9240238,18.9460238 C25.8657857,20.222881 25.6629762,21.0949286 25.3664524,21.8579762 C25.059881,22.6468333 24.6496905,23.3158333 23.9827857,23.9827857 C23.3158333,24.6496905 22.6468333,25.059881 21.8579762,25.3664524 C21.0949286,25.6629762 20.222881,25.8657857 18.9460238,25.9240238 C17.6665,25.9824048 17.2579762,25.9962143 14.0000238,25.9962143 C10.7420238,25.9962143 10.3335,25.9824048 9.05397619,25.9240238 C7.77711905,25.8657857 6.90507143,25.6629762 6.14202381,25.3664524 C5.35316667,25.059881 4.68416667,24.6496905 4.01721429,23.9827857 C3.35030952,23.3158333 2.94011905,22.6468333 2.63359524,21.8579762 C2.33702381,21.0949286 2.13421429,20.222881 2.07597619,18.9460238 C2.01759524,17.6665 2.00378571,17.2579762 2.00378571,14.0000238 C2.00378571,10.7420238 2.01759524,10.3335 2.07597619,9.05397619 C2.13421429,7.77711905 2.33702381,6.90507143 2.63359524,6.14202381 C2.94011905,5.35316667 3.35030952,4.68416667 4.01721429,4.01721429 C4.68416667,3.35030952 5.35316667,2.94011905 6.14202381,2.63359524 C6.90507143,2.33702381 7.77711905,2.13421429 9.05397619,2.07597619 C10.3335,2.01759524 10.7420238,2.00378571 14.0000238,2.00378571 Z M14.0000238,4.1652619 C10.796881,4.1652619 10.4174524,4.1775 9.1525,4.23521429 C7.98288095,4.28854762 7.34769048,4.48397619 6.92497619,4.6482619 C6.36502381,4.86588095 5.96540476,5.12583333 5.54564286,5.54564286 C5.12583333,5.96540476 4.86588095,6.36502381 4.6482619,6.92497619 C4.48397619,7.34769048 4.28854762,7.98288095 4.23521429,9.1525 C4.1775,10.4174524 4.1652619,10.796881 4.1652619,14.0000238 C4.1652619,17.203119 4.1775,17.5825476 4.23521429,18.8475 C4.28854762,20.017119 4.48397619,20.6523095 4.6482619,21.0750238 C4.86588095,21.6349762 5.12588095,22.0345952 5.54564286,22.4543571 C5.96540476,22.8741667 6.36502381,23.134119 6.92497619,23.3517381 C7.34769048,23.5160238 7.98288095,23.7114524 9.1525,23.7647857 C10.4173095,23.8225 10.7966429,23.8347381 14.0000238,23.8347381 C17.2033571,23.8347381 17.5827381,23.8225 18.8475,23.7647857 C20.017119,23.7114524 20.6523095,23.5160238 21.0750238,23.3517381 C21.6349762,23.134119 22.0345952,22.8741667 22.4543571,22.4543571 C22.8741667,22.0345952 23.134119,21.6349762 23.3517381,21.0750238 C23.5160238,20.6523095 23.7114524,20.017119 23.7647857,18.8475 C23.8225,17.5825476 23.8347381,17.203119 23.8347381,14.0000238 C23.8347381,10.796881 23.8225,10.4174524 23.7647857,9.1525 C23.7114524,7.98288095 23.5160238,7.34769048 23.3517381,6.92497619 C23.134119,6.36502381 22.8741667,5.96540476 22.4543571,5.54564286 C22.0345952,5.12583333 21.6349762,4.86588095 21.0750238,4.6482619 C20.6523095,4.48397619 20.017119,4.28854762 18.8475,4.23521429 C17.5825476,4.1775 17.203119,4.1652619 14.0000238,4.1652619 Z M14.0000238,17.9987381 C16.2084524,17.9987381 17.9987381,16.2084524 17.9987381,14.0000238 C17.9987381,11.7915476 16.2084524,10.0012619 14.0000238,10.0012619 C11.7915476,10.0012619 10.0012619,11.7915476 10.0012619,14.0000238 C10.0012619,16.2084524 11.7915476,17.9987381 14.0000238,17.9987381 Z M14.0000238,7.83978571 C17.4022143,7.83978571 20.1602143,10.5977857 20.1602143,14.0000238 C20.1602143,17.4022143 17.4022143,20.1602143 14.0000238,20.1602143 C10.5977857,20.1602143 7.83978571,17.4022143 7.83978571,14.0000238 C7.83978571,10.5977857 10.5977857,7.83978571 14.0000238,7.83978571 Z M21.8431667,7.59640476 C21.8431667,8.39145238 21.1986429,9.03592857 20.4035952,9.03592857 C19.6085952,9.03592857 18.9640714,8.39145238 18.9640714,7.59640476 C18.9640714,6.80135714 19.6085952,6.15683333 20.4035952,6.15683333 C21.1986429,6.15683333 21.8431667,6.80135714 21.8431667,7.59640476 Z"></path>
+        </svg>
+    </a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <a class="social-icon" href="https://www.linkedin.com/in/sushmanth-reddy-mereddy-b942811b1/" target="_blank" rel="noopener" title="LinkedIn">
+        <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+            <path d="M2,3.654102 C2,2.69908141 2.79442509,1.92397846 3.77383592,1.92397846 L24.2261641,1.92397846 C25.2058917,1.92397846 26,2.69908141 26,3.654102 L26,24.3462148 C26,25.3015521 25.2058917,26.0760215 24.2261641,26.0760215 L3.77383592,26.0760215 C2.79442509,26.0760215 2,25.3015521 2,24.3465315 L2,3.65378524 L2,3.654102 Z M9.27526132,22.1415901 L9.27526132,11.2356668 L5.65030092,11.2356668 L5.65030092,22.1415901 L9.27557808,22.1415901 L9.27526132,22.1415901 Z M7.46341463,9.74691162 C8.72727273,9.74691162 9.51409566,8.90940767 9.51409566,7.86284447 C9.49033893,6.79252455 8.72727273,5.97846056 7.48748812,5.97846056 C6.24675325,5.97846056 5.43649034,6.79252455 5.43649034,7.86284447 C5.43649034,8.90940767 6.22299652,9.74691162 7.4396579,9.74691162 L7.46309788,9.74691162 L7.46341463,9.74691162 Z M11.2815965,22.1415901 L14.9062401,22.1415901 L14.9062401,16.0519481 C14.9062401,15.7263225 14.9299968,15.4000634 15.0256573,15.1675641 C15.2876148,14.5159962 15.8840672,13.8416218 16.8856509,13.8416218 C18.1970225,13.8416218 18.7218879,14.8416218 18.7218879,16.3078872 L18.7218879,22.1415901 L22.3465315,22.1415901 L22.3465315,15.8885017 C22.3465315,12.5388027 20.5584416,10.9800443 18.1735825,10.9800443 C16.2182452,10.9800443 15.3595185,12.072854 14.8824834,12.8172315 L14.9065569,12.8172315 L14.9065569,11.2359835 L11.2819132,11.2359835 C11.3291099,12.2591067 11.2815965,22.1419069 11.2815965,22.1419069 L11.2815965,22.1415901 Z"></path>
+        </svg>
+    </a>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    
+    
+    <a class="social-icon" href="https://github.com/sushmanthreddy" target="_blank" rel="noopener" title="GitHub">
+        <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" fill="#ABABAB" xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink">
+            <path d="M13.9988029,1.32087331 C6.82105037,1.32087331 1,7.14112562 1,14.3212723 C1,20.0649109 4.72454649,24.9370678 9.89038951,26.6560892 C10.5408085,26.7757983 10.7778323,26.374374 10.7778323,26.0296121 C10.7778323,25.7215609 10.7666595,24.9035493 10.760275,23.8189856 C7.14426471,24.6042767 6.38131925,22.0760223 6.38131925,22.0760223 C5.78995672,20.5740732 4.93762853,20.1742451 4.93762853,20.1742451 C3.75729765,19.3682044 5.02701126,19.3841656 5.02701126,19.3841656 C6.33183953,19.4759425 7.01817121,20.7241085 7.01817121,20.7241085 C8.17775254,22.7104801 10.0611744,22.1366749 10.8017741,21.8038838 C10.919887,20.9643246 11.2558703,20.3913175 11.6269683,20.066507 C8.74038491,19.7385043 5.70536235,18.6228163 5.70536235,13.6413251 C5.70536235,12.2223743 6.21213051,11.0611968 7.04370914,10.1530044 C6.90963504,9.82420367 6.46351945,8.50181809 7.17139875,6.71256734 C7.17139875,6.71256734 8.26234691,6.36301702 10.7459099,8.04532771 C11.78259,7.75642995 12.8950858,7.61277914 14.000399,7.60719272 C15.1049142,7.61277914 16.2166119,7.75642995 17.2548881,8.04532771 C19.736855,6.36301702 20.8262071,6.71256734 20.8262071,6.71256734 C21.5356825,8.50181809 21.0895669,9.82420367 20.9562909,10.1530044 C21.7894656,11.0611968 22.2922435,12.2223743 22.2922435,13.6413251 C22.2922435,18.6355852 19.2524325,19.734514 16.3570705,20.0561322 C16.8231376,20.4575564 17.2389269,21.2508282 17.2389269,22.4638795 C17.2389269,24.2012564 17.2229657,25.603448 17.2229657,26.0296121 C17.2229657,26.3775663 17.4575954,26.7821827 18.116793,26.6552912 C23.2786458,24.9322794 27,20.0633148 27,14.3212723 C27,7.14112562 21.1789496,1.32087331 13.9988029,1.32087331"></path>
+        </svg>
+    </a>
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+</div>
+
+
+
+
+	<div class="footer-mobile-links">
+        <p><a href="https://github.com/kimcc/hugo-theme-noteworthy" target="_blank" rel="noopener">Noteworthy theme</a></p>
+		<span class="divider-bar">|</span>
+        <p><a href="https://gohugo.io" target="_blank" rel="noopener">Built with Hugo</a></p>
+	</div>
+
+	<script src="https://sushmanthreddy.github.io/js/main.min.a7205ef73b078c8daed6fe1b0826e8ba229ffabbb69d299d9446cf41f2c7d8aa.js" integrity="sha256-pyBe9zsHjI2u1v4bCCbouiKf+ru2nSmdlEbPQfLH2Ko=" crossorigin="anonymous"></script>
+</footer>
+
+    </body>
+</html>

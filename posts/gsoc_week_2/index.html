@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="format-detection" content="telephone=no"/>
 
-    <title>OpenWorm | Sushmanth&#39;s blog</title>
+    <title>GSOC WEEK 2 | Sushmanth&#39;s blog</title>
     
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -28,8 +28,6 @@
     
     
  
-    
-    <link rel="alternate" type="application/rss+xml" href="https://sushmanthreddy.github.io/tags/openworm/index.xml" title="Sushmanth's blog" />
     </head>
 
     <body>
@@ -159,93 +157,204 @@
         <div id="content" class="content-container">
         
 
-  <h1>Tagged "OpenWorm"</h1>
-  
-  
+<h1 class="post-title">GSOC WEEK 2</h1>
     
-    <article>
-            <h2>
-                <a href="https://sushmanthreddy.github.io/posts/gsoc_week_2/">
-                    GSOC WEEK 2
-                </a>
-            </h2>
-            <div>
-                <p>Here in this week most of time went on making the data for the prompt encoder as it accepts the prompt embeding , I have to convert all masks into bounding boxes.</p>
-                
-            </div>
-            <div class="post-footer">
-            <time>June 16, 2023</time>
-            </div> 
-        </article>
+    <time>June 16, 2023</time>
     
-  
+    <div>
+        <p>
+        <p>Here in this week most of time went on making the data for the prompt encoder as it accepts the prompt embeding , I have to convert all masks into bounding boxes.
+Most of the weeek have worked on the custom dataset class .</p>
+<p>Here First step have took all images into csv file and the images are call from the csv file .
+with the corresponding label images .</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ids<span style="color:#f92672">=[]</span>
+</span></span><span style="display:flex;"><span>label_filenames <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>f <span style="color:#66d9ef">for</span> f in listdir<span style="color:#f92672">(</span>label_path<span style="color:#f92672">)</span> <span style="color:#66d9ef">if</span> isfile<span style="color:#f92672">(</span>join<span style="color:#f92672">(</span>label_path, f<span style="color:#f92672">))]</span>
+</span></span><span style="display:flex;"><span>feature_filenames <span style="color:#f92672">=</span> <span style="color:#f92672">[</span>f <span style="color:#66d9ef">for</span> f in listdir<span style="color:#f92672">(</span>output_features_path<span style="color:#f92672">)</span> <span style="color:#66d9ef">if</span> isfile<span style="color:#f92672">(</span>join<span style="color:#f92672">(</span>output_features_path, f<span style="color:#f92672">))]</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> i in range<span style="color:#f92672">(</span>len<span style="color:#f92672">(</span>feature_filenames<span style="color:#f92672">))</span>:
+</span></span><span style="display:flex;"><span>  ids.append<span style="color:#f92672">(</span>feature_filenames<span style="color:#f92672">[</span>i<span style="color:#f92672">][</span>1:<span style="color:#f92672">])</span>
+</span></span><span style="display:flex;"><span>print<span style="color:#f92672">(</span>len<span style="color:#f92672">(</span>ids<span style="color:#f92672">))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd.DataFrame<span style="color:#f92672">(</span>ids ,columns<span style="color:#f92672">=[</span><span style="color:#e6db74">&#34;file_ids&#34;</span><span style="color:#f92672">])</span>
+</span></span><span style="display:flex;"><span>df.to_csv<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;file_ids.csv&#39;</span>, index<span style="color:#f92672">=</span>False<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#sanity check</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd.read_csv<span style="color:#f92672">(</span><span style="color:#e6db74">&#39;file_ids.csv&#39;</span><span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>df.head<span style="color:#f92672">()</span>
+</span></span></code></pre></div><p>Here real work started with the customdataset class.</p>
+<h2 id="custom-dataset-class">Custom dataset class</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>from torch.utils.data import Dataset, DataLoader
+</span></span><span style="display:flex;"><span>from PIL import Image
+</span></span><span style="display:flex;"><span>import numpy as np
+</span></span><span style="display:flex;"><span>import torch
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>class segmentationDataset<span style="color:#f92672">(</span>Dataset<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>    def __init__<span style="color:#f92672">(</span>self, csv, augmentation<span style="color:#f92672">=</span>None, transform_image<span style="color:#f92672">=</span>None, transform_label<span style="color:#f92672">=</span>None<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>        self.df <span style="color:#f92672">=</span> pd.read_csv<span style="color:#f92672">(</span>csv<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        self.ids <span style="color:#f92672">=</span> self.df<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;file_ids&#34;</span><span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>        self.transform_image <span style="color:#f92672">=</span> transform_image
+</span></span><span style="display:flex;"><span>        self.transform_label <span style="color:#f92672">=</span> transform_label
+</span></span><span style="display:flex;"><span>        self.augmentation <span style="color:#f92672">=</span> augmentation
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    def __getitem__<span style="color:#f92672">(</span>self, idx<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>        image <span style="color:#f92672">=</span> np.array<span style="color:#f92672">(</span>Image.open<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/kaggle/input/nucleus-data/nucleus_data/features/F&#34;</span> + self.ids<span style="color:#f92672">[</span>idx<span style="color:#f92672">]))</span>
+</span></span><span style="display:flex;"><span>        mask <span style="color:#f92672">=</span> np.array<span style="color:#f92672">(</span>Image.open<span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/kaggle/input/nucleus-data/nucleus_data/segmentation_maps/L&#34;</span> + self.ids<span style="color:#f92672">[</span>idx<span style="color:#f92672">]))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> self.augmentation is not None:
+</span></span><span style="display:flex;"><span>            augmented <span style="color:#f92672">=</span> self.augmentation<span style="color:#f92672">(</span>image<span style="color:#f92672">=</span>image, mask<span style="color:#f92672">=</span>mask<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            image <span style="color:#f92672">=</span> augmented<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;image&#34;</span><span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>            mask <span style="color:#f92672">=</span> augmented<span style="color:#f92672">[</span><span style="color:#e6db74">&#34;mask&#34;</span><span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        image <span style="color:#f92672">=</span> self.transform_image<span style="color:#f92672">(</span>image<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        mask <span style="color:#f92672">=</span> self.transform_label<span style="color:#f92672">(</span>mask<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        b_boxes <span style="color:#f92672">=</span> self.masks_to_boxes<span style="color:#f92672">(</span>mask<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> image.float<span style="color:#f92672">()</span>, mask.float<span style="color:#f92672">()</span>, b_boxes.float<span style="color:#f92672">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    def __len__<span style="color:#f92672">(</span>self<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> len<span style="color:#f92672">(</span>self.ids<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    @staticmethod
+</span></span><span style="display:flex;"><span>    def masks_to_boxes<span style="color:#f92672">(</span>mask<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>        obj_ids <span style="color:#f92672">=</span> torch.unique<span style="color:#f92672">(</span>mask<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        obj_ids <span style="color:#f92672">=</span> obj_ids<span style="color:#f92672">[</span>1:<span style="color:#f92672">]</span>  <span style="color:#75715e"># Exclude background (0) label</span>
+</span></span><span style="display:flex;"><span>        b_boxes <span style="color:#f92672">=</span> <span style="color:#f92672">[]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> obj_id in obj_ids:
+</span></span><span style="display:flex;"><span>            obj_mask <span style="color:#f92672">=</span> mask <span style="color:#f92672">==</span> obj_id
+</span></span><span style="display:flex;"><span>            pos <span style="color:#f92672">=</span> torch.where<span style="color:#f92672">(</span>obj_mask<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>            x_min <span style="color:#f92672">=</span> torch.min<span style="color:#f92672">(</span>pos<span style="color:#f92672">[</span>1<span style="color:#f92672">])</span>
+</span></span><span style="display:flex;"><span>            x_max <span style="color:#f92672">=</span> torch.max<span style="color:#f92672">(</span>pos<span style="color:#f92672">[</span>1<span style="color:#f92672">])</span>
+</span></span><span style="display:flex;"><span>            y_min <span style="color:#f92672">=</span> torch.min<span style="color:#f92672">(</span>pos<span style="color:#f92672">[</span>0<span style="color:#f92672">])</span>
+</span></span><span style="display:flex;"><span>            y_max <span style="color:#f92672">=</span> torch.max<span style="color:#f92672">(</span>pos<span style="color:#f92672">[</span>0<span style="color:#f92672">])</span>
+</span></span><span style="display:flex;"><span>            b_box <span style="color:#f92672">=</span> torch.tensor<span style="color:#f92672">([</span>x_min, y_min, x_max, y_max<span style="color:#f92672">])</span>
+</span></span><span style="display:flex;"><span>            b_boxes.append<span style="color:#f92672">(</span>b_box<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> b_boxes:
+</span></span><span style="display:flex;"><span>            b_boxes <span style="color:#f92672">=</span> torch.stack<span style="color:#f92672">(</span>b_boxes<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">else</span>:
+</span></span><span style="display:flex;"><span>            b_boxes <span style="color:#f92672">=</span> torch.empty<span style="color:#f92672">(</span>0, 4<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> b_boxes
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>def collate_fn<span style="color:#f92672">(</span>batch<span style="color:#f92672">)</span>:
+</span></span><span style="display:flex;"><span>    images <span style="color:#f92672">=</span> <span style="color:#f92672">[]</span>
+</span></span><span style="display:flex;"><span>    masks <span style="color:#f92672">=</span> <span style="color:#f92672">[]</span>
+</span></span><span style="display:flex;"><span>    b_boxes_list <span style="color:#f92672">=</span> <span style="color:#f92672">[]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> image, mask, b_boxes in batch:
+</span></span><span style="display:flex;"><span>        images.append<span style="color:#f92672">(</span>image<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        masks.append<span style="color:#f92672">(</span>mask<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>        b_boxes_list.append<span style="color:#f92672">(</span>b_boxes<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    max_num_b_boxes <span style="color:#f92672">=</span> max<span style="color:#f92672">(</span>len<span style="color:#f92672">(</span>b_boxes<span style="color:#f92672">)</span> <span style="color:#66d9ef">for</span> b_boxes in b_boxes_list<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    padded_b_boxes <span style="color:#f92672">=</span> <span style="color:#f92672">[]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> b_boxes in b_boxes_list:
+</span></span><span style="display:flex;"><span>        padded_b_boxes.append<span style="color:#f92672">(</span>torch.cat<span style="color:#f92672">([</span>b_boxes, torch.zeros<span style="color:#f92672">(</span>max_num_b_boxes - len<span style="color:#f92672">(</span>b_boxes<span style="color:#f92672">)</span>, 4<span style="color:#f92672">)]))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> torch.stack<span style="color:#f92672">(</span>images<span style="color:#f92672">)</span>, torch.stack<span style="color:#f92672">(</span>masks<span style="color:#f92672">)</span>, torch.stack<span style="color:#f92672">(</span>padded_b_boxes<span style="color:#f92672">)</span>
+</span></span></code></pre></div><p>The given code defines a custom dataset class and a collate function for handling the dataset during training or testing. Let&rsquo;s break down the code step by step:</p>
+<ol>
+<li>
+<p>The <strong>init</strong> method:</p>
+<ul>
+<li>This method is the constructor of the custom dataset class.</li>
+<li>It takes four parameters: csv, augmentation, transform_image, and transform_label.</li>
+<li>csv is the path to a CSV file containing information about the dataset.</li>
+<li>augmentation, transform_image, and transform_label are optional transformation functions to be applied to the images and masks.</li>
+<li>The CSV file is read using pd.read_csv and stored as a DataFrame (self.df).</li>
+<li>The file IDs are extracted from the DataFrame (self.ids) to be used later for loading the images and masks.</li>
+</ul>
+</li>
+<li>
+<p>The <strong>getitem</strong> method:</p>
+<ul>
+<li>This method is used to retrieve an item from the dataset at a specific index (idx).</li>
+<li>It loads the corresponding image and mask using the file IDs stored in self.ids.</li>
+<li>If an augmentation function is provided, it applies the augmentation to the image and mask.</li>
+<li>The image and mask are then transformed using the provided transform_image and transform_label functions, respectively.</li>
+<li>The method also applies a static method called masks_to_boxes to convert the mask into bounding boxes.</li>
+<li>Finally, it returns the transformed image, mask, and bounding boxes as tensors.</li>
+</ul>
+</li>
+<li>
+<p>The <strong>len</strong> method:</p>
+<ul>
+<li>This method returns the length of the dataset, which is the number of items in self.ids.</li>
+</ul>
+</li>
+<li>
+<p>The masks_to_boxes static method:</p>
+<ul>
+<li>This method takes a mask tensor as input and converts it into bounding boxes.</li>
+<li>It first identifies unique object IDs in the mask tensor (excluding the background label).</li>
+<li>Then, for each object ID, it creates a binary mask for that object, finds the minimum and maximum positions of non-zero elements in the mask along both dimensions, and constructs a bounding box tensor.</li>
+<li>The method returns a tensor containing all the bounding boxes.</li>
+</ul>
+</li>
+<li>
+<p>The collate_fn function:</p>
+<ul>
+<li>This function is used by the data loader to collate a batch of samples into a single batch.</li>
+<li>It takes a list of samples, where each sample consists of an image tensor, mask tensor, and bounding box tensor.</li>
+<li>It creates separate lists for images, masks, and bounding boxes from the samples.</li>
+<li>It then finds the maximum number of bounding boxes among all the samples.</li>
+<li>Next, it pads the bounding boxes in each sample with zeros to match the maximum number of bounding boxes.</li>
+<li>Finally, it returns the stacked tensors of images, masks, and padded bounding boxes as the collated batch.</li>
+</ul>
+</li>
+</ol>
+<p>The provided code is designed to handle a dataset containing images and corresponding masks, where the masks are represented as segmentation maps with different object labels. The collate_fn function ensures that the batched tensors have consistent shapes for efficient processing during training or testing.</p>
+<p>Most of the time went on understanding the collate function due to various number of the bounding_boxes. Dataloader havent worked ,so understand and it took almost whole week to write the custom dataset class for the sam model.</p>
+<h2 id="transformations-are-applied-for-the-model">transformations are applied for the model.</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>full_dataset <span style="color:#f92672">=</span> segmentationDataset<span style="color:#f92672">(</span>csv <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;file_ids.csv&#34;</span>,
+</span></span><span style="display:flex;"><span>                                    augmentation <span style="color:#f92672">=</span>  Compose<span style="color:#f92672">([</span>
+</span></span><span style="display:flex;"><span>                                                            <span style="color:#75715e">#GridDistortion(p=0.5),</span>
+</span></span><span style="display:flex;"><span>                                                            Transpose<span style="color:#f92672">(</span>p<span style="color:#f92672">=</span>0.5<span style="color:#f92672">)</span>,
+</span></span><span style="display:flex;"><span>                                                            VerticalFlip<span style="color:#f92672">(</span>p<span style="color:#f92672">=</span>0.5<span style="color:#f92672">)</span>,
+</span></span><span style="display:flex;"><span>                                                            HorizontalFlip<span style="color:#f92672">(</span>p<span style="color:#f92672">=</span>0.5<span style="color:#f92672">)</span>,
+</span></span><span style="display:flex;"><span>                                                            RandomRotate90<span style="color:#f92672">(</span>p<span style="color:#f92672">=</span>0.5<span style="color:#f92672">)</span>,
+</span></span><span style="display:flex;"><span>                                                            ShiftScaleRotate<span style="color:#f92672">(</span>p<span style="color:#f92672">=</span>0.1<span style="color:#f92672">)</span>,
+</span></span><span style="display:flex;"><span>                                                            OpticalDistortion<span style="color:#f92672">(</span>distort_limit<span style="color:#f92672">=</span>0.3, shift_limit<span style="color:#f92672">=</span>0.3, p<span style="color:#f92672">=</span>1<span style="color:#f92672">)</span>,
+</span></span><span style="display:flex;"><span>                                                            <span style="color:#f92672">])</span>,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                                    transform_image <span style="color:#f92672">=</span> transforms.Compose<span style="color:#f92672">([</span> 
+</span></span><span style="display:flex;"><span>                                                                    
+</span></span><span style="display:flex;"><span>                                                                    transforms.ToPILImage<span style="color:#f92672">()</span>,
+</span></span><span style="display:flex;"><span>                                                                    ToTensor<span style="color:#f92672">()</span>,
+</span></span><span style="display:flex;"><span>                                                                    transforms.RandomApply<span style="color:#f92672">([</span>AddGaussianNoise<span style="color:#f92672">(</span> mean <span style="color:#f92672">=</span> 0.5,std<span style="color:#f92672">=</span> 0.05<span style="color:#f92672">)]</span>, p<span style="color:#f92672">=</span>0.5<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>                                                                <span style="color:#f92672">])</span>,                                  
+</span></span><span style="display:flex;"><span>                                    transform_label <span style="color:#f92672">=</span> transforms.Compose<span style="color:#f92672">([</span> 
+</span></span><span style="display:flex;"><span>                                                                                                      
+</span></span><span style="display:flex;"><span>                                                                    transforms.ToPILImage<span style="color:#f92672">()</span>,
+</span></span><span style="display:flex;"><span>                                                                    ToTensor<span style="color:#f92672">()</span>,
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>                                                                <span style="color:#f92672">]))</span>
+</span></span></code></pre></div><p>we added the gausina noise to images and some tranformations and augmentations are applied.</p>
+<p>week 2 completely went on working with the customa dataset class and the image augmentation for the sam model</p>
+<h2 id="refernce">Refernce</h2>
+<p>Here is the link for the references , I have used for variable number of items in dataset class.
+<a href="https://pytorch.org/vision/master/auto_examples/plot_repurposing_annotations.html">link</a></p>
+
+        </p>
+    </div>
     
-    <article>
-            <h2>
-                <a href="https://sushmanthreddy.github.io/posts/gsoc_week_3/">
-                    GSOC WEEK 3
-                </a>
-            </h2>
-            <div>
-                <p>Here in this week completely we worked on image encoder part , where orginal images as sam model is trained on the images of color data , the data need to shifted to the original decoder accepted shape .</p>
-                
-            </div>
-            <div class="post-footer">
-            <time>June 16, 2023</time>
-            </div> 
-        </article>
+
     
-  
-    
-    <article>
-            <h2>
-                <a href="https://sushmanthreddy.github.io/posts/gsoc_week_4/">
-                    GSOC WEEK 4 
-                </a>
-            </h2>
-            <div>
-                <p>DevoNet I have started working on the devonet model as per my gsoc proposal ,As we are using cell tracking dataset and dataset we have the 3d images of with nucleus detection and nucleus segmentation process whole data is in the format of TIF format and images are grey scale , labels and detection.</p>
-                
-            </div>
-            <div class="post-footer">
-            <time>June 16, 2023</time>
-            </div> 
-        </article>
-    
-  
-    
-    <article>
-            <h2>
-                <a href="https://sushmanthreddy.github.io/posts/gsoc_week_1/">
-                    GSOC WEEK 1
-                </a>
-            </h2>
-            <div>
-                <p>Gsoc coding period week 1 have started coding and setup is complete the sam model is heavy and can,t be trained on local computer ,so most of my work will be using kaggle gpu.</p>
-                
-            </div>
-            <div class="post-footer">
-            <time>June 10, 2023</time>
-            </div> 
-        </article>
-    
-  
-    
-    <article>
-            <h2>
-                <a href="https://sushmanthreddy.github.io/posts/gsoc_2023_community_bonding/">
-                    GSOC_2023_community_bonding
-                </a>
-            </h2>
-            <div>
-                <p>Finally ,after 5 months of consistent work and sleepless night the d-day has approached ,continous doubts started poping my head and was really confused that , have given my best shot.</p>
-                
-            </div>
-            <div class="post-footer">
-            <time>June 4, 2023</time>
-            </div> 
-        </article>
-    
+
+    <div class="page-footer">
+        
+        <hr class="footer-divider">
+        
+            <a class="tag" href="/tags/devolearn">#DevoLearn</a>
+        
+            <a class="tag" href="/tags/gsoc">#GSOC</a>
+        
+            <a class="tag" href="/tags/openworm">#OpenWorm</a>
+        
+            <a class="tag" href="/tags/incf">#INCF</a>
+        
+      
+    </div>
 
 
         
